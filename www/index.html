@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>MAP: NYC's controversial statues and memorials</title>
+    <title>MAP: Mass shootings since Newtown</title>
     <link rel="icon" type="image/png" href="http://interactive.nydailynews.com/favicons.png">
     <!-- DEFAULT -->
     <meta charset="utf-8">
@@ -42,13 +42,13 @@
         {
             "@context": "http://schema.org",
             "@type": "NewsArticle",
-            "headline": "MAP: NYC's controversial statues and memorials",
+            "headline": "MAP: Mass shootings since Newtown",
             "url": "http://interactive.nydailynews.com/map/nyc-statues/",
             "thumbnailUrl": "http://interactive.nydailynews.com/map/nyc-statues/img/statue-share.jpg",
-            "dateCreated": "2017-09-08T06:00:00Z",
+            "dateCreated": "2017-10-04T06:00:00Z",
             "articleSection": "Interactive",
-            "creator": ["Interactive Project","Joe Murphy","Steve Smirti","Greg B. Smith"],
-            "keywords": ["interactive map","interactive project","interactive","confederate monuments"]
+            "creator": ["Interactive Project","Joe Murphy"],
+            "keywords": ["interactive map","interactive project","interactive","las vegas shooting"]
         }
     </script>
 
@@ -97,9 +97,10 @@
     <script src="http://interactive.nydailynews.com/includes/ads/ads.js" onload="nydn_ads('project');"></script>
     <!-- ADS-END -->
 
-    <link rel="stylesheet" href="http://assets.nydailynews.com/nydn/c/rh.css">
+    <link rel="stylesheet" href="//www.nydailynews.com/nydn/c/rh.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="http://interactive.nydailynews.com/js/leaflet/0.7.7/leaflet.css">
+    <link rel="stylesheet" href="//interactive.nydailynews.com/js/leaflet/1.2.0/leaflet.css">
+    <link rel="stylesheet" href="//interactive.nydailynews.com/js/leaflet/markercluster/1.1.0/MarkerCluster.Default.css">
 
     <style type="text/css">
 
@@ -108,7 +109,7 @@
     <script>var nav_params = {section: 'projects', url: 'http://interactive.nydailynews.com/project/'};</script>
     <script src="http://interactive.nydailynews.com/library/vendor-nav/vendor-include.js" defer></script>
     <style>
-    #statue-map {
+    #shooting-map {
         margin: auto;
         width: 95%;
         height: 400px;
@@ -127,7 +128,7 @@
         <div>
 
 <div class="intro">
-    <h1>MAP: New York City’s controversial statues and monuments</h1>
+    <h1>MAP: Mass shootings in the United States since 2013</h1>
     <div>
         <ul class="ra-share" id="ra-share-top" style="text-align: center;">
             <li class="rt-share-f"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://interactive.nydailynews.com/map/nyc-statues/">facebook</a> </li>
@@ -136,12 +137,10 @@
         </ul>
     </div>
 
-    <p class="byline">By <span>Greg B. Smith</span></p>
-
-    <p id="datestamp" class="stamp">Published September 8</p>
+    <p id="datestamp" class="stamp">Published October 4, 2017</p>
 
     <p>
-        <a href="http://www.nydailynews.com/new-york/de-blasio-forms-panel-mull-controversial-city-statues-futures-article-1.3480902">With Mayor de Blasio naming a committee</a> to examine how New York City should deal with the dozens of statues, obelisks and memorials commemorating historical figures, <a href="http://www.nydailynews.com/new-york/city-remove-nyc-iconic-statues-article-1.3464427">a Daily News review of NYC’s statue list</a> found an astounding cast of characters whose heroism masks bloody exploits, racist views and corrupt behavior. <strong>Browse the list of statues and the history of who those statues commemorate below.</strong>
+        
     </p>
 
 </div>
@@ -156,188 +155,15 @@
 
 
 <section id="map">
-    <div id="statue-map"></div>
+    <div id="shooting-map"></div>
 </section>
 
-<section id="statues">
+<section id="shootings">
+<!--
     <h2>New York City Statues</h2>
     <ul>
-        <li id="bernard-baruch">
-            <img src="img/bernard-baruch.jpg" alt="A photo of a plaque inscribed in honor of Bernard Baruch">
-            <h3>Bernard Baruch</h3>
-            <h4>Prominent New York financier and advisor to Presidents Woodrow Wilson during World War I and Franklin Delano Roosevelt during World War II</h4>
-            <p>Born 1870 in South Carolina, in 1925 he endowed a scholarship named in honor of his mother with the <a href="https://en.wikipedia.org/wiki/United_Daughters_of_the_Confederacy">United Daughters of the Confederacy (UDC)</a>, a group dedicated to “honor the memory of those who served and those who fell in the service of the Confederate States.” The funds were to support “scholars who have written unpublished monographs for full-length books on <a href="https://en.wikipedia.org/wiki/Confederate_States_of_America">Confederate history</a>.”</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="christopher-columbus">
-            <img src="img/christopher-columbus.jpg" alt="A photo of Columbus Triangle in Queens">
-            <h3>Christopher Columbus</h3>
-            <h4>Italian 15th Century explorer heralded for “discovering” America</h4>
-            <p>One of the first European explorers to reach North America, landing in Hispaniola (Now Haiti/Dominican Republic) in 1492. He immediately claimed the new world as the possession of the king and queen of Spain and began capturing and enslaving the indigenous tribes already living in what would later be called America. The plaque in Queens, marred by grafitti stating “Don’t Honor Genocide” Aug. 30, 2017, states “But for Columbus There Would Be No America.”</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="daniel-webster">
-            <img src="img/daniel-webster.jpg" alt="A photo of Daniel Webster's statue in Central Park">
-            <h3>Daniel Webster</h3>
-            <h4>19th Century Senator known for his soaring oratory</h4>
-            <p>Daniel Webster strongly opposed Southern secession and thus was a key supporter of the Compromise of 1850. This allowed new states such as California to enter the union as free states, but ratified the Fugitive Slave Act of 1850 requiring federal authorities to aggressively pursue escaped slaves and return them to their Southern masters. This act outraged abolitionists fighting to end slavery.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="henry-clay">
-            <img src="img/henry-clay.jpg" alt="A photo of the bust of Henry Clay in NYC City Hall">
-            <h3>Henry Clay</h3>
-            <h4>19th Century U.S. Senator also known for his eloquence on the floor of the Senate</h4>
-            <p>Henry Clay authored the Compromise of 1850 that allowed new states that resulted in the much-reviled Fugitive Slave Act requiring federal authorities to aggressively pursue escaped slaves and return them to their Southern masters.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="daniel-butterfield">
-            <img src="img/daniel-butterfield.jpg" alt="A photo of Daniel Butterfield's statue in Sakura Park">
-            <h3>General Daniel Butterfield</h3>
-            <h4>Civil War general who won a Medal of Honor after being wounded at Gaines Mill who was later appointed assistant treasurer by President Ulysses Grant</h4>
-            <p>General Daniel Butterfield resigned after he was caught in scheme by Jay Gould and James Fisk to corner the gold market.  Took a $10,000 bribe from Gould to secretly inform him when the government planned to buy or sell gold. He resigned October 1869.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="samuel-tilden">
-            <img src="img/samuel-tilden.jpg" alt="A photo of Samuel Tilden's statue in Riverside Park">
-            <h3>Samuel J. Tilden</h3>
-            <h4>New York governor and Democratic nominee for President in 1876</h4>
-            <p>Samuel Tilden won the popular vote but the Electoral College was split evenly with Rutherford B. Hayes, a Republican. Both parties worked behind the scenes to sway three Southern States to throw their support to their respective candidates. Ciphered telegrams revealed Florida’s GOP governor offering to throw the election to Tilden for $200,000. The Democrats responded with a counter-offer of $50,000, adding, “Proposition too high.” Many of the telegrams were sent or received by Tilden’s personal secretary and nephew from Tilden’s New York residence. Tilden denied knowing anything about the scheming before a Congressional committee.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="andrew-jackson">
-            <h3>Andrew Jackson</h3>
-            <h4>7th U.S. President (1829-1837) and hero of the Battle of New Orleans during the War of 1812</h4>
-            <p>President Andrew Jackson signed the Indian Removal Act of 1830, initiating a virulent campaign to eradicate the Native Americans who populated America before the Europeans showed up. He promised them that “as long as the grass grows green and the rivers flow” they would be left alone if they stay west of the river. He immediately reneged on his promise. He also railed against what was then the growing anti-slavery movement known as abolitionism.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="peter-stuyvesant">
-            <img src="img/peter-stuyvesant.jpg" alt="A photo of Peter Stuyvesant's statue in Stuyvesant Park in Manhattan">
-            <h3>Peter Stuyvesant</h3>
-            <h4>Director-general of what is now New York 1647-1664</h4>
-            <p>In 1654 Peter Stuyvesant wrote to the Dutch East India Company protesting the influx of Jews relocating from South America, demanding that “the deceitful race – such hateful enemies and blasphemers of the name of Christ – be not allowed to further infect and trouble this new colony.”</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="samuel-cox">
-            <img src="img/samuel-cox.jpg" alt="A photo of Samuel Cox' statue in Tompkins Square Park in Manhattan">
-            <h3>Samuel Sullivan Cox</h3>
-            <h4>19th Century Democratic Senator from Ohio</h4>
-            <p>On Feb. 17, 1864 Samuel Cox gave a speech to Congress accusing President Abraham Lincoln (then running for reelection) of a secret plan to promote miscegenation. He waved about a pamphlet entitled “Miscegenation: A theory of the Blending of the American White Man and Negro” and produced letters from abolitionists in support of it, which Cox warned proved the pamphlet’s “disgusting theories” “which seem so novel to us (but) have been a part of the gospel of abolition for years.” The pamphlet was a hoax; Lincoln was, of course, re-elected.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="fiorello-la-guardia">
-            <img src="img/fiorello-laguardia.jpg" alt="A photo of a statue of Fiorello La Guardia in Manhattan">
-            <h3>Fiorello La Guardia</h3>
-            <h4>Congressman 1923-1933, Republican Mayor of New York City 1934-1945</h4>
-            <p>In 1943 Metropolitan Life – which had a stated policy of not renting to blacks – announced plans to build Stuyvesant Town in Manhattan. La Guardia approved the development, knowing of this discriminatory policy. He was roundly criticized by the black community and many of his usual supporters for declining to intervene. The day he signed the contract he said he hoped the courts might intervene to reverse the policy.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="robert-moses">
-            <img src="img/robert-moses.jpg" alt="A photo of of a plaque commemorating Robert Moses">
-            <h3>Robert Moses</h3>
-            <h4>Powerful New York official who as head of several authorities and the New York City Parks Department remade much of the city through massive urban development then known as “slum clearance.”</h4>
-            <p>Robert Moses was hated by community groups for wiping out swaths of working class neighborhoods to erect highways and bridges. His proposal to put up an elevated highway through Soho and Little Italy was defeated in 1962 following months of protests led by community activist Jane Jacobs. There are no statues of Jacobs in NYC.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="henry-beecher">
-            <img src="img/henry-beecher.jpg" alt="A photo of a statue of Rev. Henry Ward Beecher in Columbus Park in Brooklyn">
-            <h3>Rev. Henry Ward Beecher</h3>
-            <h4>Famous 19th Century abolitionist and women’s rights champion based at Brooklyn’s Plymouth Church</h4>
-            <p>In the years leading up to the Civil War, Rev. Henry Beecher raised money to purchase slaves’ freedom and to send rifles (called Beecher’s Bibles) to abolishinists fighting in Kansas. After the war he supported women’s suffrage, but in 1875 he became the star of a very public adultery trial for having an affair with the wife of one of his assistants. The woman’s husband told suffragette Elizabeth Cady Stanton of the affair. Another women’s rights activist, Victoria Woodhull, who was criticized by Beecher for her advocacy of free love, made the affair public to accuse him of hypocrisy. The trial was covered nationally and described as “the most sensational he-said, she-said in American history.” The trial resulted in a hung jury.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="ulysses-grant">
-            <img src="img/ulysses-grant.jpg" alt="A photo of a plaque / statue of Ulysses S. Grant in Brooklyn's Grand Army Plaza">
-            <h3>Ulysses S. Grant</h3>
-            <h4>Commanding General of the Union Army during the Civil War, U.S. President 1869-1877</h4>
-            <p>He was the key architect of the Union’s victory over the Confederate forces during the Civil War. However, in December 1862, Gen. Grant General issued Order No. 11 which expelled all Jews from Kentucky, Tennessee and Mississippi. The allegation was that Jewish merchants were engaged in the black market sale of southern cotton in defiance of U.S. law. The order was rescinded days later by Lincoln.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="william-worth">
-            <img src="img/william-worth.jpg" alt="A photo of a plaque / statue of General William Jenkins Worth in New York City">
-            <h3>General William Jenkins Worth</h3>
-            <h4>Famous general of the Mexican-American War of 1846-1848</h4>
-            <p>Before the Mexican-American War, General William Worth in 1841 commanded federal troops clearing Seminole Indians from Florida as part of the government’s campaign to ship all Indians from the South to west of the Mississippi. He ordered his men out on search and destroy missions which drove the Indians deeper into the swamps of Florida. Worth offered $8,000 in bribes to one chief, Coaccoochee, to convince his people to move west. Worth later ordered the Third Army to move into the Big Cypress Swamp and burn villages. By 1843 Worth declared there were only about 300 Indians living in South Florida and they were no longer a threat.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="winfield-hancock">
-            <img src="img/winfield-hancock.jpg" alt="A photo of a bust of Winfield Scott Hancock in Hancock Park in Manhattan">
-            <h3>Brigadier General Winfield Scott Hancock</h3>
-            <h4>Famous general of the Civil War</h4>
-            <p>At Gettysburg, Winfield Hancock held the hill during Pickett’s Charge, where he was badly wounded. After the war he was sent to the frontier, covering area that includes what is now Kansas, Missouri, Colorado and New Mexico. At one point as negotiations with the tribes faltered, he ordered the burning of an abandoned village. He was then reassigned to New Orleans during Reconstruction, where in November 1867 he issued General Orders, No. 40 declaring that government should quickly be returned to local (white) civilian control. This struck fear with newly-freed slaves that he was encouraging a return to antebellum south. He ended his military career in the Great Plains, where an Army expedition under his command committed a massacre against the Blackfeet Indians. In 1880 he was the Democratic candidate for president but lost to Republican James Garfield. In 1881 he was elected president of the National Rifle Association (1881), with the stated intent to make skill with weapons “as prevalent as it was during the Revolution.” He died on Governor’s Island.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="horace-porter">
-            <img src="img/horace-porter.jpg" alt="A photo of the General Horace Porter memorial in Riverside Park in Manhattan">
-            <h3>General Horace Porter</h3>
-            <h4>Famous Civil War General and aide-de-camp to General William Sherman during his March to the Sea</h4>
-            <p>After the war, General Horace Porter became Ulysses Grant’s personal secretary and found himself ensnared in a plot by financier Jay Gould to corner the gold market. He says he warned Grant of the plot, but during a later investigation known as <a href="https://en.wikipedia.org/wiki/Whiskey_Ring">the Whiskey Ring trials</a>, then Treasury Soliciter Bluford Wilson alleged that Porter was involved in the plot. Porter denied the charges and he was never charged with wrongdoing.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="william-sherman">
-            <img src="img/william-sherman.jpg" alt="A photo of an elegant statue of General William Tecumseh Sherman in Grand Army Plaza in Manhattan">
-            <h3>General William Tecumseh Sherman</h3>
-            <h4>Famous Civil War general known for his 1864 capture of Atlanta and subsequent March to the Sea, a turning point for the Union</h4>
-            <div id="read-more-0" class="read-more collapsed section-0" onclick="clicker(0);">
-            <p>During the taking of Atlanta in September 1864, General William Sherman ordered the burning of all government and military buildings. Many civilian residences were burned down in the process. In his march to Savannah he caused, by his own estimate, $100 million in property damage. During the war he refused to employ black soldiers in his army. In 1860 he wrote to his wife, “All the congresses on earth can’t make the negro anything else than what he is; he must be subject to the white man.” And he wrote, “Two such races cannot live in harmony save as master and slave.” But in 1865 he issued <a href="https://en.wikipedia.org/wiki/Special_Field_Orders_No._15">Special Field Orders No. 15</a>, seizing land from white owners in South Carolina, Georgia and Florida to settle 40,000 freed slaves and black refugees. This was the basis of the phrase “<a href="http://www.pbs.org/wnet/african-americans-many-rivers-to-cross/history/the-truth-behind-40-acres-and-a-mule/">40 acres and a mule</a>” and it was revoked a year later by President Andrew Johnson, whose sympathies lay with the South. After the war he was assigned to the frontier and oversaw major Indian wars. He advocated eradicating the buffalo as a means to forcing the Indians to weaken the Indians. He died in NYC of pneumonia on Valentine’s Day 1891.</p>
-            </div>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="james-sims">
-            <img src="img/marion-sims.jpg" alt="A photo of the statue of Marion Sims in Central Park">
-            <h3>Dr. James Marion Sims</h3>
-            <h4>Famous Colonial-era doctor who founded the city’s first women’s hospital</h4>
-            <p>Dr. James Sims' statue’s inscription states, “His brilliant achievement carried the fame of American surgery throughout the entire world.” Sims experimented on 12 female slaves (1845-1849) in Montgomery, Alabama who were suffering from a severe complication that obstructed childbirth. At first the surgery failed but in later efforts he was able to remedy the problem for four of the women. He later moved to New York where he performed the now perfected operation on white women.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="josephpulitzer">
-            <img src="img/joseph-pulitzer.jpg" alt="A photo of a plaque commemmorating Joseph Pulitzer">
-            <h3>Joseph Pulitzer</h3>
-            <h4>Famous 19th Century newspaper publisher</h4>
-            <p>Joseph Pulitzer purchased the <a href="https://en.wikipedia.org/wiki/New_York_World">New York World</a> in 1883, which grew to be the nation’s biggest newspaper. During his late 19th century circulation battle with William Randolph Hearst, both publishers pushed for America’s entry into the Spanish American war of 1898 with dubious “fake news” about the sinking of the USS Maine in Havana Harbor. He and Hearst also invented yellow journalism.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="roscoe-conkling">
-            <img src="img/roscoe-conkling.jpg" alt="A photo of a statue of Roscoe Conkling in Madison Square Park in Manhattan">
-            <h3>Roscoe Conkling</h3>
-            <h4>19th Century New York politician serving in both the U.S. House and Senate</h4>
-            <p>An ardent Republican supporter of Reconstruction, Roscoe Conkling was also a political boss in New York. As such, he controlled patronage appointments at the U.S Customs House and opposed all efforts to impose civil service rules to eliminate rampant corruption. Appraisers at the Customs House received commissions based on their evaluation of the value of imported goods; the higher the value given, the higher the commission. During the Great Blizzard of 1888, he decided to walk from his law office near Wall Street to his home near Madison Square Park. He collapsed in the snow, caught pneumonia, and died a few weeks later.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="tulip-tree">
-            <img src="img/tulip-tree.jpg" alt="A photo of a plaque commemmorating the spot of the Manhattan “purchase” in Inwood Hill Park">
-            <h3>Shorakkopoch Rock</h3>
-            <h4>Commemorates the alleged spot where then director of New Netherlands Peter Minuit “purchased” Manhattan from the Mohawk and Lenape tribes for a trunk full of trinkets and beads “then worth about 60 guilders.”</h4>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="george-washington">
-            <img src="img/george-washington.jpg" alt="A photo of a statue of George Washington">
-            <h3>George Washington</h3>
-            <h4>Commanded Colonial forces to victory over the British during the Revolution, nation’s first president</h4>
-            <p>Slave-owner until the day he died.</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-        <li id="james-bennett">
-            <h3>James Gordon Bennett</h3>
-            <h4>19th Century newspaper publisher, founder of New York Herald in 1835</h4>
-            <p>In his editorials James Bennett opposed the election of Abraham Lincoln, railing against what he saw as the “inferiority” of blacks. In an 1859 editorial response following abolitionist John Brown’s unsuccessful raid on Harper’s Ferry to initiate a slave uprising, Bennett wrote, “The whole history of negro insurrections proves that there is no race of men so brutal and bloody-minded as the negro.”</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
-<!--
-        <li id="">
-            <img src="img/" alt="A photo of ">
-            <h3></h3>
-            <h4></h4>
-            <p></p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
--->
-        <li id="charles-lindbergh">
-            <h3>Charles Lindbergh</h3>
-            <h4>A famous pilot who was first to cross the Atlantic in an airplane.</h4>
-            <p>Vocal opponent of America’s intervention in the years preceding World War II, he warned of three groups pressing the country toward war: “the British, the Jewish and the Roosevelt Administration.” In his America First movement, he warned of “large Jewish ownership and influence in our motion pictures, our press, our radio and our government.”</p>
-            <p><a href="#map">Back to map</a></p>
-        </li>
     </ul>
+-->
 
 </section>
 
@@ -350,7 +176,7 @@
   </div>
 
 <div>
-    <p class="caption">Interactive by Joe Murphy and Steve Smirti</p>
+    <p class="caption">Interactive by Joe Murphy</p>
 </div>
 
         </div>
@@ -366,21 +192,23 @@
   </div>
 
 
-<script src="http://interactive.nydailynews.com/js/jquery.min.js"></script>
-<script src="http://interactive.nydailynews.com/js/leaflet/0.7.7/leaflet.js"></script>
+<script src="//interactive.nydailynews.com/js/jquery.min.js"></script>
+<script src="//interactive.nydailynews.com/js/leaflet/1.2.0/leaflet.js"></script>
+<script src="//interactive.nydailynews.com/js/leaflet/markercluster/1.1.0/leaflet.markercluster.js"></script>
 <script>
-var center_point = [40.74274, -73.988974];
+var center_point = [39.5,-98.35];
 var m = {
-    map: L.map('statue-map', { minZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 12),
-    markers: [],
+    map: L.map('shooting-map', { minZoom: 4, maxZoom: 8, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
+    markers: null,
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    add_marker: function (lat, lon, id, title, desc)
+    add_marker: function (lat, lon, id, loc, injured, killed)
     {
-        var marker = L.marker(new L.LatLng(lat, lon)).addTo(this.marker_group);
-        var content = "<h3><a href='#" + id + "'>" + title + "</a></h3><p>" + desc + "</p>";
+        var marker = L.marker(new L.LatLng(lat, lon));
+        //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
+        var content = "<h3>" + loc + "</h3><p>" + injured + " injured, " + killed + " killed.</p>";
         marker.bindPopup(content);
-        this.markers.push(marker);
+        this.markers.addLayer(marker);
     },
     slugify: function(text) {
         return text
@@ -388,8 +216,12 @@ var m = {
             .replace(/[^\w ]+/g,'')
             .replace(/ +/g,'-');
     },
+    convert_date: function(text) {
+        // Turn a string such as 1-Oct-17 into an AP-style'd date.
+    },
     init: function()
     {
+        this.markers = L.markerClusterGroup();
         L.tileLayer(m.tile, {
             attribution: m.attribution,
             maxZoom: 16
@@ -399,12 +231,13 @@ var m = {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
                 var d = data[i];
-                if ( d['lat'] !== '' ) m.add_marker(d['lat'], d['long'], m.slugify(d['fileorder']), d['name'], d['descrip']);
+                if ( d['lat'] !== '' ) m.add_marker(d['lat'], d['long'], m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']),
+                    d['City Or County'] + ', ' + d['State'], d['injured'], d['killed']);
             }
         });
 
         //this.map.fitBounds(this.marker_group);
-        //m.map.addLayer(kmlLayer);
+        this.map.addLayer(this.markers);
     }
 }
 
