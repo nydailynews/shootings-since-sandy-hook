@@ -1,0 +1,342 @@
+[
+  {
+    "Incident Date": "5-Nov-17",
+    "Address": "216 4th St",
+    "City Or County": "Sutherland Springs",
+    "State": "Texas",
+    "killed": 26,
+    "injured": 20,
+    "lat": 29.273072,
+    "long": -98.056559
+  },
+  {
+    "Incident Date": "4-Nov-17",
+    "Address": "N Lamar Blvd and Masterson Pass",
+    "City Or County": "Austin",
+    "State": "Texas",
+    "killed": 0,
+    "injured": 4,
+    "lat": 30.369758,
+    "long": -97.69325
+  },
+  {
+    "Incident Date": "4-Nov-17",
+    "Address": "2810 Market St",
+    "City Or County": "Youngstown",
+    "State": "Ohio",
+    "killed": 0,
+    "injured": 4,
+    "lat": 41.071072,
+    "long": -80.658234
+  },
+  {
+    "Incident Date": "4-Nov-17",
+    "Address": "1515 Ocean Avenue",
+    "City Or County": "Santa Monica",
+    "State": "California",
+    "killed": 1,
+    "injured": 3,
+    "lat": 34.012639,
+    "long": -118.495847
+  },
+  {
+    "Incident Date": "3-Nov-17",
+    "Address": "10th Ave S and E 24th St",
+    "City Or County": "Minneapolis",
+    "State": "Minnesota",
+    "killed": 0,
+    "injured": 4,
+    "lat": 44.959282,
+    "long": -93.297832
+  },
+  {
+    "Incident Date": "3-Nov-17",
+    "Address": "E 163rd St and S Main St",
+    "City Or County": "Gardena",
+    "State": "California",
+    "killed": 0,
+    "injured": 4,
+    "lat": 33.88386,
+    "long": -118.275565
+  },
+  {
+    "Incident Date": "3-Nov-17",
+    "Address": "147 Roosevelt Ave",
+    "City Or County": "Buffalo",
+    "State": "New York",
+    "killed": 0,
+    "injured": 4,
+    "lat": 42.933626,
+    "long": -78.808015
+  },
+  {
+    "Incident Date": "3-Nov-17",
+    "Address": "27600 block of Mirmar Street",
+    "City Or County": "Lacombe",
+    "State": "Louisiana",
+    "killed": 1,
+    "injured": 4,
+    "lat": 30.889313,
+    "long": -91.671577
+  },
+  {
+    "Incident Date": "31-Oct-17",
+    "Address": "500 block of Pointe Dr",
+    "City Or County": "Hammond",
+    "State": "Indiana",
+    "killed": 1,
+    "injured": 3,
+    "lat": 41.613225,
+    "long": -87.516218
+  },
+  {
+    "Incident Date": "29-Oct-17",
+    "Address": "5500 block of Ave F",
+    "City Or County": "Austin",
+    "State": "Texas",
+    "killed": 1,
+    "injured": 3,
+    "lat": 30.303155,
+    "long": -97.730861
+  },
+  {
+    "Incident Date": "28-Oct-17",
+    "Address": "1327 N Huron St",
+    "City Or County": "Toledo",
+    "State": "Ohio",
+    "killed": 0,
+    "injured": 4,
+    "lat": 41.661739,
+    "long": -83.5221
+  },
+  {
+    "Incident Date": "28-Oct-17",
+    "Address": "N Sycamore St and Franklin",
+    "City Or County": "Petersburg",
+    "State": "Virginia",
+    "killed": 1,
+    "injured": 3,
+    "lat": 37.232035,
+    "long": -77.404656
+  },
+  {
+    "Incident Date": "27-Oct-17",
+    "Address": "1716 Prentice St",
+    "City Or County": "Louisville",
+    "State": "Kentucky",
+    "killed": 0,
+    "injured": 6,
+    "lat": 38.240727,
+    "long": -85.784141
+  },
+  {
+    "Incident Date": "27-Oct-17",
+    "Address": "1100 block of Fillmore",
+    "City Or County": "San Francisco",
+    "State": "California",
+    "killed": 0,
+    "injured": 4,
+    "lat": 37.7648,
+    "long": -122.463
+  },
+  {
+    "Incident Date": "23-Oct-17",
+    "Address": "13000 block of Anchor Village",
+    "City Or County": "Clearlake Oaks",
+    "State": "California",
+    "killed": 2,
+    "injured": 2,
+    "lat": 39.023986,
+    "long": -122.661306
+  },
+  {
+    "Incident Date": "22-Oct-17",
+    "Address": "Wethersfield Avenue and Elliott Street",
+    "City Or County": "Hartford",
+    "State": "Connecticut",
+    "killed": 0,
+    "injured": 4,
+    "lat": 41.742959,
+    "long": -72.672686
+  },
+  {
+    "Incident Date": "22-Oct-17",
+    "Address": "1606 19th St Sw",
+    "City Or County": "Lanett",
+    "State": "Alabama",
+    "killed": 2,
+    "injured": 7,
+    "lat": 32.848413,
+    "long": -85.206436
+  },
+  {
+    "Incident Date": "21-Oct-17",
+    "Address": "164 E Eubanks St",
+    "City Or County": "Jacksonville",
+    "State": "Florida",
+    "killed": 0,
+    "injured": 4,
+    "lat": 30.3322,
+    "long": -81.6557
+  },
+  {
+    "Incident Date": "21-Oct-17",
+    "Address": "1277 12th Ave S",
+    "City Or County": "Nashville",
+    "State": "Tennessee",
+    "killed": 0,
+    "injured": 4,
+    "lat": 36.14127,
+    "long": -86.787328
+  },
+  {
+    "Incident Date": "21-Oct-17",
+    "Address": "1200 block of W Carlas Ln",
+    "City Or County": "Chester",
+    "State": "Pennsylvania",
+    "killed": 0,
+    "injured": 4,
+    "lat": 39.846895,
+    "long": -75.382597
+  },
+  {
+    "Incident Date": "21-Oct-17",
+    "Address": "400 Block of E Nordica St",
+    "City Or County": "Tampa",
+    "State": "Florida",
+    "killed": 0,
+    "injured": 4,
+    "lat": 27.978167,
+    "long": -82.455902
+  },
+  {
+    "Incident Date": "18-Oct-17",
+    "Address": "2111 Emmorton Park Rd",
+    "City Or County": "Edgewood",
+    "State": "Maryland",
+    "killed": 3,
+    "injured": 3,
+    "lat": 39.45235,
+    "long": -76.309718
+  },
+  {
+    "Incident Date": "17-Oct-17",
+    "Address": "181 Martense St",
+    "City Or County": "Brooklyn",
+    "State": "New York",
+    "killed": 0,
+    "injured": 4,
+    "lat": 40.651515,
+    "long": -73.952946
+  },
+  {
+    "Incident Date": "16-Oct-17",
+    "Address": "5th Street",
+    "City Or County": "Meridian",
+    "State": "Mississippi",
+    "killed": 1,
+    "injured": 3,
+    "lat": 32.360845,
+    "long": -88.709837
+  },
+  {
+    "Incident Date": "15-Oct-17",
+    "Address": "6233 Gulfton St",
+    "City Or County": "Houston",
+    "State": "Texas",
+    "killed": 2,
+    "injured": 2,
+    "lat": 29.715389,
+    "long": -95.4915
+  },
+  {
+    "Incident Date": "15-Oct-17",
+    "Address": "107th Ave and Camelback Rd",
+    "City Or County": "Phoenix",
+    "State": "Arizona",
+    "killed": 1,
+    "injured": 3,
+    "lat": 33.509583,
+    "long": -112.098889
+  },
+  {
+    "Incident Date": "12-Oct-17",
+    "Address": "6 Asbury Ct",
+    "City Or County": "Aliso Viejo",
+    "State": "California",
+    "killed": 2,
+    "injured": 2,
+    "lat": 33.5761,
+    "long": -117.7258
+  },
+  {
+    "Incident Date": "11-Oct-17",
+    "Address": "15497 SR 93",
+    "City Or County": "Pedro",
+    "State": "Ohio",
+    "killed": 4,
+    "injured": 0,
+    "lat": 38.6304,
+    "long": -82.6674
+  },
+  {
+    "Incident Date": "10-Oct-17",
+    "Address": "25th St and Treat Ave",
+    "City Or County": "San Francisco",
+    "State": "California",
+    "killed": 0,
+    "injured": 4,
+    "lat": 37.750816,
+    "long": -122.417641
+  },
+  {
+    "Incident Date": "9-Oct-17",
+    "Address": "3352 Old Spanish Trail",
+    "City Or County": "Houston",
+    "State": "Texas",
+    "killed": 0,
+    "injured": 5,
+    "lat": 29.701201,
+    "long": -95.372172
+  },
+  {
+    "Incident Date": "7-Oct-17",
+    "Address": "87th Ave and Thomas Rd",
+    "City Or County": "Phoenix",
+    "State": "Arizona",
+    "killed": 0,
+    "injured": 4,
+    "lat": 33.4931325,
+    "long": -112.2464636
+  },
+  {
+    "Incident Date": "6-Oct-17",
+    "Address": "8000 block of S Marshfield",
+    "City Or County": "Chicago",
+    "State": "Illinois",
+    "killed": 0,
+    "injured": 5,
+    "lat": 41.8756,
+    "long": -87.6244
+  },
+  {
+    "Incident Date": "5-Oct-17",
+    "Address": "400 block of W 13th Street",
+    "City Or County": "Casa Grande",
+    "State": "Arizona",
+    "killed": 4,
+    "injured": 0,
+    "lat": 32.885066,
+    "long": -111.762971
+  },
+  {
+    "Incident Date": "3-Oct-17",
+    "Address": "2051 NW 65th St",
+    "City Or County": "Miami",
+    "State": "Florida",
+    "killed": 0,
+    "injured": 4,
+    "lat": 25.833868,
+    "long": -80.231343
+  }
+]

@@ -137,17 +137,22 @@
         </ul>
     </div>
 
-    <p class="stamp">Last updated November 6, 2017</p>
-    <p id="datestamp" class="stamp">Published October 3, 2017</p>
+    <p class="stamp">Published October 3, 2017</p>
+    <p id="datestamp" class="stamp">Last updated November 6, 2017</p>
 
     <p>
-        Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Explore these grim incidents in this map of mass shootings in the United States.
+        Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>, 55 have died in mass shootings and 140 have been injured. 
     </p>
+    <p>
+        Explore these grim incidents in this map of mass shootings in the United States.
+    </p>
+    <!--
     <p>
         <em>
         Looking for <a href="las-vegas-2017/">the map of mass shootings from Sandy Hook until the 2017 Las Vegas mass shooting</a>?
         </em>
     </p>
+    -->
 
 </div>
 
@@ -245,6 +250,13 @@ var m = {
         var month = this.month_lookup[bits[1]];
         return month + ' ' + bits[0] + ', ' + year;
     },
+    process_marker: function(d) {
+        if ( d['lat'] !== '' ) {
+            var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
+            var loc = d['City Or County'] + ', ' + d['State'];
+            this.add_marker(d['lat'], d['long'], slug, loc, d['injured'], d['killed'], d['Incident Date']);
+        }
+    },
     init: function()
     {
         this.markers = L.markerClusterGroup();
@@ -252,16 +264,17 @@ var m = {
             attribution: m.attribution,
             maxZoom: 16
         }).addTo(m.map);
+        m.marker_group = L.layerGroup().addTo(m.map);
         $.getJSON('data/201710.json', function(data) {
-            m.marker_group = L.layerGroup().addTo(m.map);
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
-                var d = data[i];
-                if ( d['lat'] !== '' ) {
-                    var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
-                    var loc = d['City Or County'] + ', ' + d['State'];
-                    m.add_marker(d['lat'], d['long'], slug, loc, d['injured'], d['killed'], d['Incident Date']);
-                }
+                m.process_marker(data[i]);
+            }
+        });
+        $.getJSON('data/201711.json', function(data) {
+            var len = data.length;
+            for ( var i = 0; i < len; i ++ ) {
+                m.process_marker(data[i]);
             }
         });
 
