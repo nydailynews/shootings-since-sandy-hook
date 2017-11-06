@@ -127,7 +127,7 @@
         <div>
 
 <div class="intro">
-    <h2>Las Vegas Shooting</h2>
+    <h2>Mass Shootings</h2>
     <h1>MAP: Mass shootings in the United States since 2013</h1>
     <div>
         <ul class="ra-share" id="ra-share-top" style="text-align: center;">
@@ -137,10 +137,16 @@
         </ul>
     </div>
 
+    <p class="stamp">Last updated November 6, 2017</p>
     <p id="datestamp" class="stamp">Published October 3, 2017</p>
 
     <p>
         Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Explore these grim incidents in this map of mass shootings in the United States.
+    </p>
+    <p>
+        <em>
+        Looking for <a href="las-vegas-2017/">the map of mass shootings from Sandy Hook until the 2017 Las Vegas mass shooting</a>?
+        </em>
     </p>
 
 </div>
@@ -151,7 +157,7 @@
 
 <section id="shootings">
     <p class="latest-news">
-        <a href="http://www.nydailynews.com/tags/las-vegas-shooting">THE LATEST</a>: 
+        <a href="http://www.nydailynews.com/tags/mass-murder">THE LATEST</a>: 
         <strong id="latest-news-headline"></strong>
     </p>
 
@@ -166,7 +172,7 @@
             return text;
         }
         s.onload = function() { callback(); }
-        s.setAttribute('src', 'http://interactive.nydailynews.com/project/las-vegas-victims/tag-vegas-1.js?' + rando());
+        s.setAttribute('src', '//interactive.nydailynews.com/project/las-vegas-victims/tag-mass-murder-1.js?' + rando());
         document.getElementsByTagName('head')[0].appendChild(s);
         function callback() {
             document.getElementById('latest-news-headline').innerHTML = hed;
@@ -174,7 +180,7 @@
     </script>
 
     <p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-    <p class="stamp">Last updated October 3, 2017</p>
+    <p class="stamp">Last updated November 6, 2017</p>
 </section>
 
   <div class="ad center">
@@ -255,6 +261,7 @@ var m = {
                     var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
                     var loc = d['City Or County'] + ', ' + d['State'];
                     m.add_marker(d['lat'], d['long'], slug, loc, d['injured'], d['killed'], d['Incident Date']);
+                }
             }
         });
 

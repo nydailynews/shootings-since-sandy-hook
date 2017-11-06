@@ -23,7 +23,7 @@
 
     <!-- KEYWORD -->
     <meta name="keywords" content="Mass shootings,mass shootings map" />
-    <meta name="news_keywords" content="Mass shootings,mass shootings map,las vegas massacre" />
+    <meta name="news_keywords" content="Mass shootings,mass shootings map,las vegas massacre,las vegas mass shooting" />
 
     <!-- LINK -->
     <link rel="canonical" href="http://interactive.nydailynews.com/map/mass-shootings-since-sandy-hook/las-vegas-2017/">
@@ -166,7 +166,7 @@
             return text;
         }
         s.onload = function() { callback(); }
-        s.setAttribute('src', 'http://interactive.nydailynews.com/project/las-vegas-victims/tag-vegas-1.js?' + rando());
+        s.setAttribute('src', '//interactive.nydailynews.com/project/las-vegas-victims/tag-vegas-1.js?' + rando());
         document.getElementsByTagName('head')[0].appendChild(s);
         function callback() {
             document.getElementById('latest-news-headline').innerHTML = hed;
@@ -174,7 +174,6 @@
     </script>
 
     <p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-    <p class="stamp">Last updated October 3, 2017</p>
 </section>
 
   <div class="ad center">
@@ -246,7 +245,7 @@ var m = {
             attribution: m.attribution,
             maxZoom: 16
         }).addTo(m.map);
-        $.getJSON('data/201710.json', function(data) {
+        $.getJSON('../data/201710.json', function(data) {
             m.marker_group = L.layerGroup().addTo(m.map);
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
@@ -255,6 +254,7 @@ var m = {
                     var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
                     var loc = d['City Or County'] + ', ' + d['State'];
                     m.add_marker(d['lat'], d['long'], slug, loc, d['injured'], d['killed'], d['Incident Date']);
+                }
             }
         });
 
