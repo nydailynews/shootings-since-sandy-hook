@@ -284,6 +284,172 @@ var m = {
 }
 
 m.init();
+
+var panel = {
+        hash: document.location.hash,
+        hash_parts: [],
+        description: document.getElementById('current'),
+        taxonomy: {
+            '_blank': {
+                count: 0,
+                name: ''
+            },
+        },
+        active: [], // List of the active slugs. If no slugs are specified all start off active.
+        length: 0,
+        all: function(action)
+        {
+            // action is either clear or show
+            // loop through all the checkboxes and clear / show.
+        },
+        toggle_url: function(value)
+        {
+            // Update the url to reflect the markers on the map.
+            // We do this so we can permalink particular maps.
+            if ( this.hash_parts.indexOf(value) === -1 )
+            {
+                // Append to the hash and description
+                this.hash_parts.push(value);
+                if ( this.hash === '' )
+                {
+                    this.hash = value;
+                    this.description.innerHTML = this.taxonomy[value]['name'];
+                    this.hed.innerHTML = this.taxonomy[value]['name'];
+                }
+                else
+                {
+                    this.hash += ',' + value;
+                    this.description.innerHTML += ', ' + this.taxonomy[value]['name'];
+                    this.hed.innerHTML += ', ' + this.taxonomy[value]['name'];
+                }
+            }
+            else
+            {
+                // Remove from the hash and description
+                var index = this.hash_parts.indexOf(value);
+                this.hash_parts.splice(index, 1);
+                var len = this.hash_parts.length;
+                if ( len > 0 )
+                {
+                    this.hash = this.hash_parts[0];
+                    this.description.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
+                    this.hed.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
+                    for ( var i = 1; i < len; i ++ )
+                    {
+                        this.hash += ',' + this.hash_parts[i];
+                        this.description.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
+                        this.hed.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
+                    }
+                }
+                else
+                {
+                    this.hash = '';
+                    this.description.innerHTML = '';
+                    this.hed.innerHTML = '';
+                }
+            }
+            window.history.replaceState('', '', window.location.origin + window.location.pathname + '#' + this.hash);
+        },
+        show_report_items: function(value)
+        {
+            // Show the crime reports in the #all column that we're mapping on the map
+            $('#all .' + value).removeClass('hide');
+            // Get the class in the item that has the date so we can make sure to show the date header.
+            var date_class = $('#all .' + value)[0].classlist[$('#all .' + value)[0].classlist.length - 1];
+            $('h3#' + date_class).removeClass('hide');
+        },
+        remove_report_items: function(value)
+        {
+            // Remove crime reports in the #all column that we're mapping on the map
+            $('#all .' + value).addClass('hide');
+            // Get the class in the item that has the date so we can make sure to show the date header.
+            var date_class = $('#all .' + value)[0].classlist[$('#all .' + value)[0].classlist.length - 1];
+            $('h3#' + date_class).addClass('hide');
+            // Before we hide the header, we make sure that header isn't servicing other crimes that are still visible.
+            var items = $('#all li.' + date_class);
+        },
+        action: function(checked, value) 
+        { 
+            if ( checked ) 
+            {
+                // Make sure to get rid of the new markers
+                if ( this.hash === 'new' )
+                {
+                    this.hash = '';
+                    this.hash_parts = [];
+                    m.remove_markers('new');
+                }
+                m.load_markers(data[value], value);
+                this.toggle_url(value);
+                this.show_report_items(value);
+            }
+            else
+            {
+                m.remove_markers(value);
+                this.toggle_url(value);
+            }
+            if ( value in this.active )
+            {
+                // Hide these elements
+                $('li.' + value).removeClass('show');
+                $('li.' + value).addClass('hide');
+            }
+            else
+            {
+                // Show these elements
+                $('li.' + value).removeClass('hide');
+                $('li.' + value).addClass('show');
+            }
+        },
+        build_interface: function()
+        {
+            // Write the list of checkboxes we use for interacting with the map
+            var k = Object.keys(this.taxonomy);
+            var len = k.length;
+            k.sort();
+            for ( var i = 0; i < len; i++ )
+            {
+                var key = k[i];
+                var t = this.taxonomy[key];
+                var markup = '<li><label for="' + key + '">\n\
+<input type="checkbox" onClick="recent.action(this.checked, this.value)" value="' + key + '" id="' + key + '">\n\
+' + t['name'] + ' <span>(' + t['count'] + ')</span></label></li>';
+                document.getElementById('interface').innerHTML += markup;
+            }
+        },
+        init: function ()
+        {
+            //this.length 
+            this.hed = document.getElementById('current');
+            this.build_interface();
+
+            // If we've got hash values on page load that means we load only certain crimes.
+            if ( this.hash !== '' )
+            {
+                var hs = this.hash.substring(1);
+                var items = [hs];
+                if ( hs.indexOf(',') > 0 )
+                {
+                    items = hs.split(',')
+                }
+                this.hash_parts = items;
+                var len = items.length;
+                for ( var i = 0; i < len; i++ )
+                {
+                    // Activate these, hide all the others.
+                    m.load_markers(data[items[i]], items[i]);
+                    $('#' + items[i]).prop('checked', true);
+                }
+            }
+            else
+            {
+                // Let's start off loading the new crimes since last update
+                this.hash = 'new';
+                this.hash_parts = ['new'];
+                m.load_markers(data['new'], 'new');
+            }
+        }
+};
 </script>
 <!-- CONTENT-END -->
 
