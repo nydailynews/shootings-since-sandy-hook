@@ -158,6 +158,14 @@
 
 <section id="map">
     <div id="shooting-map"></div>
+    <fieldset id="deaths">
+        <legend>Filter mass shootings by</legend>
+        <p><label for="all">All mass shootings</label><input type="radio" name="deaths" id="all" value="all" checked></p>
+        <p><label for="death-1">Shootings with at least one death</label><input type="radio" name="deaths" id="death-1" value="death-1"></p>
+        <p><label for="death-2">2+ deaths</label><input type="radio" name="deaths" id="death-2" value="death-2"></p>
+        <p><label for="death-5">5+ deaths</label><input type="radio" name="deaths" id="death-5" value="death-5"></p>
+        <p><label for="death-10">10+ deaths</label><input type="radio" name="deaths" id="death-10" value="death-10"></p>
+    </fieldset>
 </section>
 
 <section id="shootings">
@@ -167,6 +175,7 @@
     </p>
 
     <script>
+
         var s = document.createElement('script');
         var rando = function() { 
             var text = "";
@@ -283,7 +292,6 @@ var m = {
     }
 }
 
-m.init();
 
 var panel = {
         hash: document.location.hash,
@@ -450,6 +458,8 @@ var panel = {
             }
         }
 };
+m.init();
+panel.init();
 </script>
 <!-- CONTENT-END -->
 
