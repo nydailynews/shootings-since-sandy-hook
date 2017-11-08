@@ -1,1 +1,4 @@
-# [NYC Statue Map](http://interactive.nydailynews.com/map/nyc-statues/)
+# [Mass shootings since Sandy Hook](http://interactive.nydailynews.com/map/mass-shootings-since-sandy-hook/)
+
+## Usage
+
