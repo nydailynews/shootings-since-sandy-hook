@@ -1,5 +1,5 @@
-# Mass Shooting Since Sandy Hook
+# [Mass shootings since Sandy Hook](http://interactive.nydailynews.com/map/mass-shootings-since-sandy-hook/)
 
-## How to update the data.json
+## Usage
 
-[Batch Geocode your locations](https://www.doogal.co.uk/BatchGeocoding.php)
+### How to update the data.json
