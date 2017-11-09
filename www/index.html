@@ -163,8 +163,8 @@
         <p><label for="all">All mass shootings</label><input type="radio" name="deaths" id="all" value="all" checked></p>
         <p><label for="death-1">Shootings with at least one death</label><input type="radio" name="deaths" id="death-1" value="death-1"></p>
         <p><label for="death-2">2+ deaths</label><input type="radio" name="deaths" id="death-2" value="death-2"></p>
+        <p><label for="death-3">3+ deaths</label><input type="radio" name="deaths" id="death-3" value="death-3"></p>
         <p><label for="death-5">5+ deaths</label><input type="radio" name="deaths" id="death-5" value="death-5"></p>
-        <p><label for="death-10">10+ deaths</label><input type="radio" name="deaths" id="death-10" value="death-10"></p>
     </fieldset>
 </section>
 
@@ -220,17 +220,13 @@
 var center_point = [39.5,-98.35];
 var m = {
     map: L.map('shooting-map', { minZoom: 4, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
-    markers: null,
+    markers: [],
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    add_marker: function (lat, lon, id, loc, injured, killed, date_raw)
-    {
-        var marker = L.marker(new L.LatLng(lat, lon));
-        var date_str = this.convert_date(date_raw);
-        //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
-        var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + injured + " injured, " + killed + " killed.</p>";
-        marker.bindPopup(content);
-        this.markers.addLayer(marker);
+    marker_group: {},
+    marker_groups: {},
+    remove_markers: function(value) {
+        this.map.removeLayer(this.marker_groups[value]);
     },
     slugify: function(text) {
         return text
@@ -258,6 +254,22 @@ var m = {
         var year = '20' + bits[2];
         var month = this.month_lookup[bits[1]];
         return month + ' ' + bits[0] + ', ' + year;
+    },
+    add_marker: function (lat, lon, id, loc, injured, killed, date_raw)
+    {
+        // figure out what to put in slug.
+        var killed_bucket = +d['killed'];
+        if ( +d['killed'] >= 5 ) killed_bucket = 5;
+        this.marker_group['killed-' + killed_bucket].push(marker);
+
+        var marker = L.marker(new L.LatLng(lat, lon)).addTo(this.marker_groups[]);
+        var date_str = this.convert_date(date_raw);
+        //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
+        var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + injured + " injured, " + killed + " killed.</p>";
+        marker.bindPopup(content);
+        //this.markers.addLayer(marker);
+        this.markers.push(marker);
+
     },
     process_marker: function(d) {
         if ( d['lat'] !== '' ) {
@@ -429,7 +441,7 @@ var panel = {
         {
             //this.length 
             this.hed = document.getElementById('current');
-            this.build_interface();
+            //this.build_interface();
 
             // If we've got hash values on page load that means we load only certain crimes.
             if ( this.hash !== '' )
@@ -451,10 +463,9 @@ var panel = {
             }
             else
             {
-                // Let's start off loading the new crimes since last update
-                this.hash = 'new';
-                this.hash_parts = ['new'];
-                m.load_markers(data['new'], 'new');
+                this.hash = 'all';
+                this.hash_parts = ['all'];
+                m.load_markers(data['all'], 'all');
             }
         }
 };
