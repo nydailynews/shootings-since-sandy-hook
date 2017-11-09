@@ -303,7 +303,6 @@
 <script>
 var center_point = [39.5,-98.35];
 var m = {
-<<<<<<< HEAD
     map: L.map('shooting-map', { minZoom: 4, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
     markers: [],
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
@@ -387,79 +386,6 @@ var m = {
         //this.map.fitBounds(this.marker_group);
         this.map.addLayer(this.markers);
     }
-=======
-	map: L.map('shooting-map', { minZoom: 4, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
-	markers: null,
-	tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-	add_marker: function (lat, lon, id, loc, injured, killed, date_raw)
-	{
-		var marker = L.marker(new L.LatLng(lat, lon));
-		var date_str = this.convert_date(date_raw);
-		//var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
-		var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + injured + " injured, " + killed + " killed.</p>";
-		marker.bindPopup(content);
-		this.markers.addLayer(marker);
-	},
-	slugify: function(text) {
-		return text
-			.toLowerCase()
-			.replace(/[^\w ]+/g,'')
-			.replace(/ +/g,'-');
-	},
-	month_lookup: {
-		'Jan': 'January',
-		'Feb': 'February',
-		'Mar': 'March',
-		'Apr': 'April',
-		'May': 'May',
-		'Jun': 'June',
-		'Jul': 'July',
-		'Aug': 'August',
-		'Sep': 'September',
-		'Oct': 'October',
-		'Nov': 'November',
-		'Dec': 'December'
-	},
-	convert_date: function(text) {
-		// Turn a string such as 1-Oct-17 into an AP-style'd date.
-		var bits = text.split('-');
-		var year = '20' + bits[2];
-		var month = this.month_lookup[bits[1]];
-		return month + ' ' + bits[0] + ', ' + year;
-	},
-	process_marker: function(d) {
-		if ( d['lat'] !== '' ) {
-			var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
-			var loc = d['City Or County'] + ', ' + d['State'];
-			this.add_marker(d['lat'], d['long'], slug, loc, d['injured'], d['killed'], d['Incident Date']);
-		}
-	},
-	init: function()
-	{
-		this.markers = L.markerClusterGroup();
-		L.tileLayer(m.tile, {
-			attribution: m.attribution,
-			maxZoom: 16
-		}).addTo(m.map);
-		m.marker_group = L.layerGroup().addTo(m.map);
-		$.getJSON('data/201710.json', function(data) {
-			var len = data.length;
-			for ( var i = 0; i < len; i ++ ) {
-				m.process_marker(data[i]);
-			}
-		});
-		$.getJSON('data/201711.json', function(data) {
-			var len = data.length;
-			for ( var i = 0; i < len; i ++ ) {
-				m.process_marker(data[i]);
-			}
-		});
-
-		//this.map.fitBounds(this.marker_group);
-		this.map.addLayer(this.markers);
-	}
->>>>>>> 4565de4e5f93acea49a795f69b89c366e0fbc39c
 }
 
 
@@ -592,7 +518,6 @@ var panel = {
 				var markup = '<li><label for="' + key + '">\n\
 <input type="checkbox" onClick="recent.action(this.checked, this.value)" value="' + key + '" id="' + key + '">\n\
 ' + t['name'] + ' <span>(' + t['count'] + ')</span></label></li>';
-<<<<<<< HEAD
                 document.getElementById('interface').innerHTML += markup;
             }
         },
@@ -627,43 +552,6 @@ var panel = {
                 m.load_markers(data['all'], 'all');
             }
         }
-=======
-				document.getElementById('interface').innerHTML += markup;
-			}
-		},
-		init: function ()
-		{
-			//this.length 
-			this.hed = document.getElementById('current');
-			this.build_interface();
-
-			// If we've got hash values on page load that means we load only certain crimes.
-			if ( this.hash !== '' )
-			{
-				var hs = this.hash.substring(1);
-				var items = [hs];
-				if ( hs.indexOf(',') > 0 )
-				{
-					items = hs.split(',')
-				}
-				this.hash_parts = items;
-				var len = items.length;
-				for ( var i = 0; i < len; i++ )
-				{
-					// Activate these, hide all the others.
-					m.load_markers(data[items[i]], items[i]);
-					$('#' + items[i]).prop('checked', true);
-				}
-			}
-			else
-			{
-				// Let's start off loading the new crimes since last update
-				this.hash = 'new';
-				this.hash_parts = ['new'];
-				m.load_markers(data['new'], 'new');
-			}
-		}
->>>>>>> 4565de4e5f93acea49a795f69b89c366e0fbc39c
 };
 m.init();
 panel.init();
