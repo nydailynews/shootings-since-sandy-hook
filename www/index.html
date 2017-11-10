@@ -346,9 +346,8 @@ var m = {
         var len = this.marker_group[slug].length;
         for ( var i = 0; i < len; i ++ )
         {
-            this.add_marker(slug, data[i]['latitude'], data[i]['longitude'], data[i]['description'], "red", "close-circled");
+            this.clustergroup.addLayer(this.marker_group[slug][i]);
         }
-            
     },
     add_to_marker_group: function(slug, marker)
     {
@@ -366,8 +365,8 @@ var m = {
         //this.markers.push(marker);
 
         // figure out which layer(s) to add the marker to.
-        var killed_bucket = +killed;
-        if ( +killed >= 5 ) killed_bucket = 5;
+        var killed_bucket = killed;
+        if ( killed >= 5 ) killed_bucket = 5;
         this.add_to_marker_group('death-' + killed_bucket, marker);
         this.add_to_marker_group('all', marker);
     },
@@ -380,12 +379,12 @@ var m = {
     },
     init: function()
     {
-        this.markers = L.markerClusterGroup();
-        L.tileLayer(m.tile, {
-            attribution: m.attribution,
+        this.clustergroup = L.markerClusterGroup();
+        L.tileLayer(this.tile, {
+            attribution: this.attribution,
             maxZoom: 16
-        }).addTo(m.map);
-        m.marker_group = L.layerGroup().addTo(m.map);
+        }).addTo(this.map);
+        this.marker_group = L.layerGroup().addTo(this.map);
         // An item looks like this:
         /*
           {
@@ -404,6 +403,7 @@ var m = {
             for ( var i = 0; i < len; i ++ ) {
                 m.process_marker(data[i]);
             }
+            panel.init();
         });
         $.getJSON('data/201711.json', function(data) {
             var len = data.length;
@@ -411,9 +411,10 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
+        m.map.addLayer(m.clustergroup);
 
         //this.map.fitBounds(this.marker_group);
-        this.map.addLayer(this.markers);
+        //this.map.addLayer(this.markers);
     }
 }
 
@@ -578,12 +579,12 @@ var panel = {
             {
                 this.hash = 'all';
                 this.hash_parts = ['all'];
-                //m.load_markers(data['all'], 'all');
+                m.load_markers('all');
+                //m.map.addLayer(m.clustergroup);
             }
         }
 };
 m.init();
-panel.init();
 </script>
 <!-- CONTENT-END -->
 
