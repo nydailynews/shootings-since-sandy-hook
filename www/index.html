@@ -242,7 +242,7 @@
 					<label for="death-3">3+ fatalities</label>
 					<div class="check"><div class="inside"></div></div>
 				</li>
-								<li>
+                <li>
 					<input type="radio" name="deaths" id="death-5" value="death-5">
 					<label for="death-5">5+ fatalities</label>
 					<div class="check"><div class="inside"></div></div>
@@ -307,11 +307,8 @@ var m = {
     markers: [],
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    marker_group: {},
-    marker_groups: {},
-    remove_markers: function(value) {
-        this.map.removeLayer(this.marker_groups[value]);
-    },
+    marker_group: { 'all': [] },
+    layer_group: {},
     slugify: function(text) {
         return text
             .toLowerCase()
@@ -338,22 +335,41 @@ var m = {
         var year = '20' + bits[2];
         var month = this.month_lookup[bits[1]];
         return month + ' ' + bits[0] + ', ' + year;
-    },
-    add_marker: function (lat, lon, id, loc, injured, killed, date_raw)
-    {
-        // figure out what to put in slug.
-        var killed_bucket = +d['killed'];
-        if ( +d['killed'] >= 5 ) killed_bucket = 5;
-        this.marker_group['killed-' + killed_bucket].push(marker);
 
-        var marker = L.marker(new L.LatLng(lat, lon)).addTo(this.marker_groups[]);
+    },
+    remove_markers: function(slug) {
+        this.map.removeLayer(this.layer_group[slug]);
+    },
+    load_markers: function(slug) {
+        // Given a slug that corresponds to a marker_group of markes, loop through them and add them to the map.
+        this.layer_group[slug] = L.layerGroup().addTo(this.map);
+        var len = this.marker_group[slug].length;
+        for ( var i = 0; i < len; i ++ )
+        {
+            this.add_marker(slug, data[i]['latitude'], data[i]['longitude'], data[i]['description'], "red", "close-circled");
+        }
+            
+    },
+    add_to_marker_group: function(slug, marker)
+    {
+        if ( typeof this.marker_group[slug] === 'undefined' ) this.marker_group[slug] = [];
+        this.marker_group[slug].push(marker);
+    },
+    add_marker: function(lat, lon, id, loc, injured, killed, date_raw)
+    {
+        var marker = L.marker(new L.LatLng(lat, lon))//.addTo(this.marker_groups[]);
         var date_str = this.convert_date(date_raw);
         //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
         var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + injured + " injured, " + killed + " killed.</p>";
         marker.bindPopup(content);
         //this.markers.addLayer(marker);
-        this.markers.push(marker);
+        //this.markers.push(marker);
 
+        // figure out which layer(s) to add the marker to.
+        var killed_bucket = +killed;
+        if ( +killed >= 5 ) killed_bucket = 5;
+        this.add_to_marker_group('death-' + killed_bucket, marker);
+        this.add_to_marker_group('all', marker);
     },
     process_marker: function(d) {
         if ( d['lat'] !== '' ) {
@@ -370,6 +386,19 @@ var m = {
             maxZoom: 16
         }).addTo(m.map);
         m.marker_group = L.layerGroup().addTo(m.map);
+        // An item looks like this:
+        /*
+          {
+            "Incident Date": "1-Oct-17",
+            "Address": "1000 block of Massachusetts St",
+            "City Or County": "Lawrence",
+            "State": "Kansas",
+            "killed": 3,
+            "injured": 2,
+            "lat": 38.965463,
+            "long": -95.235711
+          },
+        */
         $.getJSON('data/201710.json', function(data) {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
@@ -549,7 +578,7 @@ var panel = {
             {
                 this.hash = 'all';
                 this.hash_parts = ['all'];
-                m.load_markers(data['all'], 'all');
+                //m.load_markers(data['all'], 'all');
             }
         }
 };
