@@ -158,7 +158,8 @@
 
 <section id="map">
 	<div id="shooting-map"></div>
-	<fieldset id="deaths" style="text-align: center;">
+    <form id="panel">
+	<fieldset id="filter" style="text-align: center;">
 		<legend>Filter mass shootings by:</legend>
 
         <!--
@@ -252,6 +253,7 @@
 			</ul>
 		</div>
 	</fieldset>
+	</form>
 </section>
 
 <section id="shootings">
@@ -304,10 +306,14 @@
 <script>
 var center_point = [39.5,-98.35];
 var m = {
+    config: {
+        dev: document.location.hash === '#dev' ? 1 : 0,
+    },
     map: L.map('shooting-map', { minZoom: 4, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
     markers: [],
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    current_layer: 'all',
     marker_group: { 'all': [] },
     layer_group: {},
     slugify: function(text) {
@@ -343,20 +349,24 @@ var m = {
     },
     load_markers: function(slug) {
         // Given a slug that corresponds to a marker_group of markes, loop through them and add them to the map.
+
         this.layer_group[slug] = L.layerGroup().addTo(this.map);
         var len = this.marker_group[slug].length;
         for ( var i = 0; i < len; i ++ )
         {
             this.clustergroup.addLayer(this.marker_group[slug][i]);
         }
+        //this.map.addLayer(this.clustergroup);
     },
     add_to_marker_group: function(slug, marker)
     {
+        // The final stop in the marker assignation.
         if ( typeof this.marker_group[slug] === 'undefined' ) this.marker_group[slug] = [];
         this.marker_group[slug].push(marker);
     },
     add_marker: function(lat, lon, id, loc, injured, killed, date_raw)
     {
+        // Build out a marker, assign it to the appropriate marker_group(s).
         var marker = L.marker(new L.LatLng(lat, lon))//.addTo(this.marker_groups[]);
         var date_str = this.convert_date(date_raw);
         //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
@@ -368,10 +378,15 @@ var m = {
         // figure out which layer(s) to add the marker to.
         var killed_bucket = killed;
         if ( killed >= 5 ) killed_bucket = 5;
-        this.add_to_marker_group('death-' + killed_bucket, marker);
+        while ( killed_bucket > 0 ) {
+            if ( killed_bucket === 4 ) killed_bucket = 3;
+            this.add_to_marker_group('death-' + killed_bucket, marker);
+            killed_bucket -= 1;
+        }
         this.add_to_marker_group('all', marker);
     },
     process_marker: function(d) {
+        // Intermediary function between the data ingestion and the function that hands the markers to the marker_group.
         if ( d['lat'] !== '' ) {
             var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
             var loc = d['City Or County'] + ', ' + d['State'];
@@ -412,7 +427,7 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        m.map.addLayer(m.clustergroup);
+        this.map.addLayer(this.clustergroup);
 
         //this.map.fitBounds(this.marker_group);
         //this.map.addLayer(this.markers);
@@ -559,7 +574,7 @@ var panel = {
             //this.build_interface();
 
             // If we've got hash values on page load that means we load only certain crimes.
-            if ( this.hash !== '' )
+            if ( this.hash !== '' && this.hash !== '#dev' )
             {
                 var hs = this.hash.substring(1);
                 var items = [hs];
@@ -583,6 +598,20 @@ var panel = {
                 m.load_markers('all');
                 //m.map.addLayer(m.clustergroup);
             }
+
+            // Add event handler to the radio buttons.
+            var radios = document.forms['panel'].elements['deaths'];
+            var l = radios.length;
+			for ( var i = 0; i < l; i ++ ) {
+                radios[i].onclick = function() { 
+                    if ( m.config.dev === 1 ) console.log("Radio clicked: ", this.value);
+                    m.clustergroup.remove();
+					m.clustergroup = L.markerClusterGroup();
+                    m.load_markers(this.value);
+					m.map.addLayer(m.clustergroup);
+                };
+			}
+                                                                                             
         }
 };
 m.init();

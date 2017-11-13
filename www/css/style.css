@@ -200,7 +200,7 @@ ul li:hover label{
 	color: #ec975d;
 }
 
-ul li .check{
+ul li .check {
 	display: inline-block;
 	position: relative;
 	border: 3px solid #333;
@@ -226,11 +226,11 @@ input[type=radio]:checked ~ .check {
 	border: 3px solid #ec975d;
 }
 
-input[type=radio]:checked ~ .check::before{
+input[type=radio]:checked ~ .check::before {
 	background: #ec975d;
 }
 
-input[type=radio]:checked ~ label{
+input[type=radio]:checked ~ label {
 	color: #ec975d;
 }
 
