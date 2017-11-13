@@ -356,7 +356,6 @@ var m = {
         {
             this.clustergroup.addLayer(this.marker_group[slug][i]);
         }
-        //this.map.addLayer(this.clustergroup);
     },
     add_to_marker_group: function(slug, marker)
     {
@@ -463,14 +462,14 @@ var panel = {
 				if ( this.hash === '' )
 				{
 					this.hash = value;
-					this.description.innerHTML = this.taxonomy[value]['name'];
-					this.hed.innerHTML = this.taxonomy[value]['name'];
+					//this.description.innerHTML = this.taxonomy[value]['name'];
+					//this.hed.innerHTML = this.taxonomy[value]['name'];
 				}
 				else
 				{
 					this.hash += ',' + value;
-					this.description.innerHTML += ', ' + this.taxonomy[value]['name'];
-					this.hed.innerHTML += ', ' + this.taxonomy[value]['name'];
+					//this.description.innerHTML += ', ' + this.taxonomy[value]['name'];
+					//this.hed.innerHTML += ', ' + this.taxonomy[value]['name'];
 				}
 			}
 			else
@@ -482,20 +481,20 @@ var panel = {
 				if ( len > 0 )
 				{
 					this.hash = this.hash_parts[0];
-					this.description.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
-					this.hed.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
+					//this.description.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
+					//this.hed.innerHTML = this.taxonomy[this.hash_parts[0]]['name'];
 					for ( var i = 1; i < len; i ++ )
 					{
 						this.hash += ',' + this.hash_parts[i];
-						this.description.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
-						this.hed.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
+						//this.description.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
+						//this.hed.innerHTML += ', ' + this.taxonomy[this.hash_parts[i]]['name'];
 					}
 				}
 				else
 				{
 					this.hash = '';
-					this.description.innerHTML = '';
-					this.hed.innerHTML = '';
+					//this.description.innerHTML = '';
+					//this.hed.innerHTML = '';
 				}
 			}
 			window.history.replaceState('', '', window.location.origin + window.location.pathname + '#' + this.hash);
@@ -522,33 +521,18 @@ var panel = {
 		{ 
 			if ( checked ) 
 			{
-				// Make sure to get rid of the new markers
-				if ( this.hash === 'new' )
-				{
-					this.hash = '';
-					this.hash_parts = [];
-					m.remove_markers('new');
-				}
-				m.load_markers(data[value], value);
+				m.clustergroup.remove();
+				m.clustergroup = L.markerClusterGroup();
+				m.load_markers(value);
+				m.map.addLayer(m.clustergroup);
+
 				this.toggle_url(value);
-				this.show_report_items(value);
+				//this.show_report_items(value);
 			}
 			else
 			{
-				m.remove_markers(value);
-				this.toggle_url(value);
-			}
-			if ( value in this.active )
-			{
-				// Hide these elements
-				$('li.' + value).removeClass('show');
-				$('li.' + value).addClass('hide');
-			}
-			else
-			{
-				// Show these elements
-				$('li.' + value).removeClass('hide');
-				$('li.' + value).addClass('show');
+				//m.remove_markers(value);
+				//this.toggle_url(value);
 			}
 		},
 		build_interface: function()
@@ -605,10 +589,7 @@ var panel = {
 			for ( var i = 0; i < l; i ++ ) {
                 radios[i].onclick = function() { 
                     if ( m.config.dev === 1 ) console.log("Radio clicked: ", this.value);
-                    m.clustergroup.remove();
-					m.clustergroup = L.markerClusterGroup();
-                    m.load_markers(this.value);
-					m.map.addLayer(m.clustergroup);
+					panel.action(this.checked, this.value);
                 };
 			}
                                                                                              
