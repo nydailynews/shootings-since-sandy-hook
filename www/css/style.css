@@ -174,31 +174,31 @@ legend {
 
 /*----- RADIO BUTTONS -----*/
 
-ul{
+ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	overflow: auto;
 }
 
-ul li{
+fieldset ul li {
 	color: #333;
 	display: inline-block;
 	margin: 10px;
 }
 
-ul li input[type=radio]{
+ul li input[type=radio] {
 	position: absolute;
 	visibility: hidden;
 }
 
-ul li label{
-	font: normal 15px 'Open Sans', sans-serif;
+ul li label {
+	font: normal 15px/12px 'Open Sans', sans-serif;
 	position: relative;
 	cursor: pointer;
 }
 
-ul li:hover label{
+ul li:hover label {
 	color: #ec975d;
 }
 
@@ -224,11 +224,11 @@ ul li .check::before {
 	width: 10px;
 }
 
-input[type=radio]:checked ~ .check {
+input[type=radio]:checked ~ label .check {
 	border: 3px solid #ec975d;
 }
 
-input[type=radio]:checked ~ .check::before {
+input[type=radio]:checked ~ label .check::before {
 	background: #ec975d;
 }
 
