@@ -157,7 +157,6 @@
 </div>
 
 <section id="map">
-	<div id="shooting-map"></div>
     <form id="panel">
 	<fieldset id="filter" style="text-align: center;">
 		<legend>Filter mass shootings by:</legend>
@@ -228,17 +227,10 @@
 					<div class="check"></div>
 					<label for="all">All mass shootings</label>
 				</li>
-  
 				<li>
 					<input type="radio" name="deaths" id="death-1" value="death-1">
 					<div class="check"><div class="inside"></div></div>
 					<label for="death-1">Shooting with at least one fatality</label>
-				</li>
-  
-				<li>
-					<input type="radio" name="deaths" id="death-2" value="death-2">
-					<div class="check"><div class="inside"></div></div>
-					<label for="death-2">2+ fatalities</label>
 				</li>
 				<li>
 					<input type="radio" name="deaths" id="death-3" value="death-3">
@@ -250,10 +242,16 @@
 					<div class="check"><div class="inside"></div></div>
 					<label for="death-5">5+ fatalities</label>
 				</li>
+				<li>
+					<input type="radio" name="deaths" id="death-10" value="death-10">
+					<div class="check"><div class="inside"></div></div>
+					<label for="death-10">10+ fatalities</label>
+				</li>
 			</ul>
 		</div>
 	</fieldset>
 	</form>
+	<div id="shooting-map"></div>
 </section>
 
 <section id="shootings">
@@ -376,9 +374,10 @@ var m = {
 
         // figure out which layer(s) to add the marker to.
         var killed_bucket = killed;
-        if ( killed >= 5 ) killed_bucket = 5;
+        if ( killed >= 10 ) killed_bucket = 10;
         while ( killed_bucket > 0 ) {
             if ( killed_bucket === 4 ) killed_bucket = 3;
+            else if ( killed_bucket > 5 && killed_bucket < 10 ) killed_bucket = 5;
             this.add_to_marker_group('death-' + killed_bucket, marker);
             killed_bucket -= 1;
         }
