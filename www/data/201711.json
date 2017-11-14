@@ -1,10 +1,100 @@
 [
   {
+    "Incident Date": "14-Nov-17",
+    "Address": "17357 Stagecoach Rd",
+    "City Or County": "Corning",
+    "State": "California",
+    "killed": 4,
+    "injured": 10,
+    "lat": 40.018824,
+    "long": -122.393
+  },
+  {
+    "Incident Date": "12-Nov-17",
+    "Address": "4601 Melton Rd",
+    "City Or County": "Gary",
+    "State": "Indiana",
+    "killed": 0,
+    "injured": 7,
+    "lat": 41.594986,
+    "long": -87.281284
+  },
+  {
+    "Incident Date": "12-Nov-17",
+    "Address": "S Calvin Ave",
+    "City Or County": "Fresno",
+    "State": "California",
+    "killed": 0,
+    "injured": 5,
+    "lat": 36.682291,
+    "long": -119.734809
+  },
+  {
+    "Incident Date": "12-Nov-17",
+    "Address": "50 Lower Alabama Street",
+    "City Or County": "Atlanta",
+    "State": "Georgia",
+    "killed": 2,
+    "injured": 2,
+    "lat": 33.751821,
+    "long": -84.389679
+  },
+  {
+    "Incident Date": "11-Nov-17",
+    "Address": "2532 Martin Luther King Jr Blvd",
+    "City Or County": "Dallas",
+    "State": "Texas",
+    "killed": 1,
+    "injured": 3,
+    "lat": 32.766726,
+    "long": -96.770705
+  },
+  {
+    "Incident Date": "11-Nov-17",
+    "Address": "Forstall Street and Burgundy Street",
+    "City Or County": "New Orleans",
+    "State": "Louisiana",
+    "killed": 1,
+    "injured": 5,
+    "lat": 29.960262,
+    "long": -90.022121
+  },
+  {
+    "Incident Date": "11-Nov-17",
+    "Address": "2835 Bragg Blvd",
+    "City Or County": "Fayetteville",
+    "State": "North Carolina",
+    "killed": 1,
+    "injured": 5,
+    "lat": 35.073695,
+    "long": -78.927769
+  },
+  {
+    "Incident Date": "10-Nov-17",
+    "Address": "193 Olive Rd",
+    "City Or County": "Dayton (Trotwood)",
+    "State": "Ohio",
+    "killed": 0,
+    "injured": 4,
+    "lat": 39.749216,
+    "long": -84.292874
+  },
+  {
+    "Incident Date": "9-Nov-17",
+    "Address": "1800 block of Ringgold",
+    "City Or County": "Philadelphia",
+    "State": "Pennsylvania",
+    "killed": 0,
+    "injured": 4,
+    "lat": 39.930141,
+    "long": -75.18596
+  },
+  {
     "Incident Date": "5-Nov-17",
     "Address": "216 4th St",
     "City Or County": "Sutherland Springs",
     "State": "Texas",
-    "killed": 26,
+    "killed": 27,
     "injured": 20,
     "lat": 29.273072,
     "long": -98.056559
