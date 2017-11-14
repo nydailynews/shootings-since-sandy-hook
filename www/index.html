@@ -450,6 +450,13 @@ var panel = {
 			// action is either clear or show
 			// loop through all the checkboxes and clear / show.
 		},
+		overwrite_url: function(value)
+		{
+			// Update the url, overwriting everything that was there before.
+			this.hash_parts = [value];
+			this.hash = value;
+			window.history.replaceState('', '', window.location.origin + window.location.pathname + '#' + this.hash);
+		},
 		toggle_url: function(value)
 		{
 			// Update the url to reflect the markers on the map.
@@ -525,7 +532,8 @@ var panel = {
 				m.load_markers(value);
 				m.map.addLayer(m.clustergroup);
 
-				this.toggle_url(value);
+				this.overwrite_url(value);
+				//this.toggle_url(value);
 				//this.show_report_items(value);
 			}
 			else
@@ -553,7 +561,7 @@ var panel = {
         init: function ()
         {
             //this.length 
-            this.hed = document.getElementById('current');
+            //this.hed = document.getElementById('current');
             //this.build_interface();
 
             // If we've got hash values on page load that means we load only certain crimes.
@@ -570,7 +578,7 @@ var panel = {
                 for ( var i = 0; i < len; i++ )
                 {
                     // Activate these, hide all the others.
-                    m.load_markers(data[items[i]], items[i]);
+                    m.load_markers(items[i]);
                     $('#' + items[i]).prop('checked', true);
                 }
             }
