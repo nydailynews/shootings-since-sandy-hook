@@ -107,8 +107,10 @@ q {
 }
 
 legend {
+	color: #999;
 	font: normal 17px "PT Serif", serif;
-	margin: 15px auto;
+	padding-top: 10px;
+	margin: 5px auto;
 }
 
 /*-----  DROPDOWN -----*/
