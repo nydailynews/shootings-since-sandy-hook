@@ -373,15 +373,13 @@ var m = {
     add_marker: function(d)
     {
         // Build out a marker, assign it to the appropriate marker_group(s).
-        var marker = L.marker(new L.LatLng(d['lat'], d['long']))//.addTo(this.marker_groups[]);
+        var marker = L.marker(new L.LatLng(d['lat'], d['long']))
         var date_str = this.convert_date(d['Incident Date']);
         var loc = d['City Or County'] + ', ' + d['State'];
         var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
-        //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
-        var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + d['injured'] + " injured, " + d['killed'] + " killed.</p>";
+        var content = "<h3>" + loc + "</h3>\n\
+                       <p>" + date_str + ': ' + d['injured'] + " injured, " + d['killed'] + " killed.</p>";
         marker.bindPopup(content);
-        //this.markers.addLayer(marker);
-        //this.markers.push(marker);
 
         // figure out which layer(s) to add the marker to.
         var killed_bucket = killed;
@@ -436,9 +434,6 @@ var m = {
             }
         });
         this.map.addLayer(this.clustergroup);
-
-        //this.map.fitBounds(this.marker_group);
-        //this.map.addLayer(this.markers);
     }
 }
 
