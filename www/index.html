@@ -370,12 +370,13 @@ var m = {
         if ( typeof this.marker_group[slug] === 'undefined' ) this.marker_group[slug] = [];
         this.marker_group[slug].push(marker);
     },
-    add_marker: function(d, lat, lon, id)
+    add_marker: function(d)
     {
         // Build out a marker, assign it to the appropriate marker_group(s).
-        var marker = L.marker(new L.LatLng(lat, lon))//.addTo(this.marker_groups[]);
+        var marker = L.marker(new L.LatLng(d['lat'], d['long']))//.addTo(this.marker_groups[]);
         var date_str = this.convert_date(d['Incident Date']);
         var loc = d['City Or County'] + ', ' + d['State'];
+        var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
         //var content = "<h3><a href='#" + id + "'>" + loc + "</a></h3><p>" + desc + "</p>";
         var content = "<h3>" + loc + "</h3><p>" + date_str + ': ' + d['injured'] + " injured, " + d['killed'] + " killed.</p>";
         marker.bindPopup(content);
@@ -397,9 +398,7 @@ var m = {
     process_marker: function(d) {
         // Intermediary function between the data ingestion and the function that hands the markers to the marker_group.
         if ( d['lat'] !== '' ) {
-            var slug = m.slugify(d['Incident Date'] + '-' + d['City Or County'] + '-' + d['State']);
-            var loc = d['City Or County'] + ', ' + d['State'];
-            this.add_marker(item, d['lat'], d['long'], slug);
+            this.add_marker(d);
         }
     },
     init: function()
