@@ -520,44 +520,17 @@ var panel = {
 		action: function(action, value) 
 		{ 
             if ( action === 'select' ) value = "state-" + m.slugify(value);
-			if ( action ) 
-			{
-				m.clustergroup.remove();
-				m.clustergroup = L.markerClusterGroup();
-				m.load_markers(value);
-				m.map.addLayer(m.clustergroup);
+			m.clustergroup.remove();
+			m.clustergroup = L.markerClusterGroup();
+			m.load_markers(value);
+			m.map.addLayer(m.clustergroup);
 
-				this.overwrite_url(value);
-				//this.toggle_url(value);
-				//this.show_report_items(value);
-			}
-			else
-			{
-				//m.remove_markers(value);
-				//this.toggle_url(value);
-			}
+			this.overwrite_url(value);
 		},
-		build_interface: function()
-		{
-			// Write the list of checkboxes we use for interacting with the map
-			var k = Object.keys(this.taxonomy);
-			var len = k.length;
-			k.sort();
-			for ( var i = 0; i < len; i++ )
-			{
-				var key = k[i];
-				var t = this.taxonomy[key];
-				var markup = '<li><label for="' + key + '">\n\
-<input type="checkbox" onClick="recent.action(this.checked, this.value)" value="' + key + '" id="' + key + '">\n\
-' + t['name'] + ' <span>(' + t['count'] + ')</span></label></li>';
-                document.getElementById('interface').innerHTML += markup;
-            }
-        },
         init: function ()
         {
             //this.length 
             //this.hed = document.getElementById('current');
-            //this.build_interface();
 
             // If we've got hash values on page load that means we load only certain crimes.
             if ( this.hash !== '' && this.hash !== '#dev' )
