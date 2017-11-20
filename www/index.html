@@ -23,7 +23,7 @@
 
 	<!-- KEYWORD -->
 	<meta name="keywords" content="Mass shootings,mass shootings map" />
-	<meta name="news_keywords" content="Mass shootings,mass shootings map" />
+	<meta name="news_keywords" content="Mass shootings,mass shootings map,U.S. mass shootings" />
 
 	<!-- LINK -->
 	<link rel="canonical" href="http://interactive.nydailynews.com/map/mass-shootings-since-sandy-hook/">
@@ -162,7 +162,7 @@
 		<legend>Filter mass shootings by:</legend>
 
 		<div class="select">
-			<select id="states">
+			<select id="states" name="states">
 				<option value="Alabama">Alabama</option>
 				<option value="Alaska">Alaska</option>
 				<option value="Arizona">Arizona</option>
@@ -260,6 +260,8 @@
 	</fieldset>
 	</form>
 	<div id="shooting-map"></div>
+    <h2>How many mass shootings since Sandy Hook?</h2>
+    <p></p>
 </section>
 
 <section id="shootings">
@@ -324,10 +326,13 @@ var m = {
     marker_group: { 'all': [] },
     layer_group: {},
     slugify: function(text) {
-        return text
-            .toLowerCase()
-            .replace(/[^\w ]+/g,'')
-            .replace(/ +/g,'-');
+        // from https://gist.github.com/mathewbyrne/1280286
+        return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
     },
     month_lookup: {
         'Jan': 'January',
@@ -382,8 +387,8 @@ var m = {
         marker.bindPopup(content);
 
         // figure out which layer(s) to add the marker to.
-        var killed_bucket = killed;
-        if ( killed >= 10 ) killed_bucket = 10;
+        var killed_bucket = d['killed'];
+        if ( d['killed'] >= 10 ) killed_bucket = 10;
         while ( killed_bucket > 0 ) {
             if ( killed_bucket === 4 ) killed_bucket = 3;
             else if ( killed_bucket > 5 && killed_bucket < 10 ) killed_bucket = 5;
@@ -392,6 +397,8 @@ var m = {
         }
         this.add_to_marker_group('all', marker);
         this.add_to_marker_group('death-' + killed_bucket, marker);
+
+        if ( d['State'] !== '' ) this.add_to_marker_group('state-' + this.slugify(d['State']), marker);
     },
     process_marker: function(d) {
         // Intermediary function between the data ingestion and the function that hands the markers to the marker_group.
@@ -510,27 +517,10 @@ var panel = {
 			}
 			window.history.replaceState('', '', window.location.origin + window.location.pathname + '#' + this.hash);
 		},
-		show_report_items: function(value)
-		{
-			// Show the crime reports in the #all column that we're mapping on the map
-			$('#all .' + value).removeClass('hide');
-			// Get the class in the item that has the date so we can make sure to show the date header.
-			var date_class = $('#all .' + value)[0].classlist[$('#all .' + value)[0].classlist.length - 1];
-			$('h3#' + date_class).removeClass('hide');
-		},
-		remove_report_items: function(value)
-		{
-			// Remove crime reports in the #all column that we're mapping on the map
-			$('#all .' + value).addClass('hide');
-			// Get the class in the item that has the date so we can make sure to show the date header.
-			var date_class = $('#all .' + value)[0].classlist[$('#all .' + value)[0].classlist.length - 1];
-			$('h3#' + date_class).addClass('hide');
-			// Before we hide the header, we make sure that header isn't servicing other crimes that are still visible.
-			var items = $('#all li.' + date_class);
-		},
-		action: function(checked, value) 
+		action: function(action, value) 
 		{ 
-			if ( checked ) 
+            if ( action === 'select' ) value = "state-" + m.slugify(value);
+			if ( action ) 
 			{
 				m.clustergroup.remove();
 				m.clustergroup = L.markerClusterGroup();
@@ -595,15 +585,20 @@ var panel = {
                 //m.map.addLayer(m.clustergroup);
             }
 
-            // Add event handler to the radio buttons.
+            // Add event handler to the form elements.
             var radios = document.forms['panel'].elements['deaths'];
             var l = radios.length;
 			for ( var i = 0; i < l; i ++ ) {
                 radios[i].onclick = function() { 
                     if ( m.config.dev === 1 ) console.log("Radio clicked: ", this.value);
-					panel.action(this.checked, this.value);
+					panel.action('radio', this.value);
                 };
 			}
+
+            document.querySelector('select[name="states"]').onchange = function() {
+                if ( m.config.dev === 1 ) console.log("Select clicked: ", this.value);
+                panel.action('select', this.value);
+            }
                                                                                              
         }
 };
