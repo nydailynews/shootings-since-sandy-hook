@@ -137,8 +137,8 @@
 		</ul>
 	</div>
 
-	<p class="stamp">Published October 3, 2017</p>
-	<p id="datestamp" class="stamp">Updated November 14, 2017</p>
+	<p class="stamp">Updated November 14, 2017</p>
+	<p id="datestamp" class="stamp">Published October 3, 2017</p>
 
 	<p>
 		Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>, <span id="X">65</span> have died in mass shootings and <span id="I">185</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
@@ -317,7 +317,7 @@ var m = {
     config: {
         dev: document.location.hash === '#dev' ? 1 : 0,
     },
-    map: L.map('shooting-map', { minZoom: 4, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
+    map: L.map('shooting-map', { minZoom: 3, maxZoom: 9, zoomControl:true, scrollWheelZoom:false }).setView(center_point, 4),
     markers: [],
     tile: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
