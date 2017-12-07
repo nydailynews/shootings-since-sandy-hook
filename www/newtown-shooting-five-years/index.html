@@ -143,19 +143,9 @@
 	<p id="datestamp" class="stamp">Published December 8, 2017</p>
 
 	<p>
-		Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>, <span id="X">65</span> have died in mass shootings and <span id="I">185</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
-	</p>
-	<p>
+		In the five years since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,780 have died in subsequent mass shootings. More than 6,300 suffered injuries. 
 		Explore these grim incidents in this map of mass shootings in the United States.
 	</p>
-	<!--
-	<p>
-		<em>
-		Looking for <a href="las-vegas-2017/">the map of mass shootings from Sandy Hook until the 2017 Las Vegas mass shooting</a>?
-		</em>
-	</p>
-	-->
-
 </div>
 
 <section id="map">
@@ -394,6 +384,8 @@ var m = {
     },
     process_marker: function(d) {
         // Intermediary function between the data ingestion and the function that hands the markers to the marker_group.
+        panel.killed += +d['killed'];
+        panel.injured += +d['injured'];
         if ( d['lat'] !== '' ) {
             this.add_marker(d);
         }
@@ -432,6 +424,12 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
+        $.getJSON('../data/201712.json', function(data) {
+            var len = data.length;
+            for ( var i = 0; i < len; i ++ ) {
+                m.process_marker(data[i]);
+            }
+        });
         this.map.addLayer(this.clustergroup);
     }
 }
@@ -440,6 +438,8 @@ var m = {
 var panel = {
 		hash: document.location.hash,
 		hash_parts: [],
+        killed: 0,
+        injured: 0,
 		description: document.getElementById('current'),
 		taxonomy: {
 			'_blank': {
