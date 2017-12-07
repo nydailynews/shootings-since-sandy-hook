@@ -1,0 +1,112 @@
+[
+  {
+    "Incident Date": "6-Dec-17",
+    "Address": "4620 N Broadway",
+    "City Or County": "Chicago",
+    "State": "Illinois",
+    "killed": 0,
+    "injured": 4,
+    "lat": 41.965597,
+    "long": -87.657712
+  },
+  {
+    "Incident Date": "4-Dec-17",
+    "Address": "7200 block of Everton St",
+    "City Or County": "Pittsburgh",
+    "State": "Pennsylvania",
+    "killed": 2,
+    "injured": 2,
+    "lat": 40.463234,
+    "long": -79.893464
+  },
+  {
+    "Incident Date": "3-Dec-17",
+    "Address": "656 Marshall Ave",
+    "City Or County": "Memphis",
+    "State": "Tennessee",
+    "killed": 1,
+    "injured": 3,
+    "lat": 35.14025,
+    "long": -90.038862
+  },
+  {
+    "Incident Date": "2-Dec-17",
+    "Address": "5200 Woodward Avenue",
+    "City Or County": "Detroit",
+    "State": "Michigan",
+    "killed": 0,
+    "injured": 4,
+    "lat": 42.359503,
+    "long": -83.064319
+  },
+  {
+    "Incident Date": "30-Nov-17",
+    "Address": "11000 block of Gunston",
+    "City Or County": "Detroit",
+    "State": "Michigan",
+    "killed": 1,
+    "injured": 4,
+    "lat": 42.4081,
+    "long": -82.993599
+  },
+  {
+    "Incident Date": "24-Nov-17",
+    "Address": "119 Martin Street",
+    "City Or County": "Brookhaven",
+    "State": "Mississippi",
+    "killed": 1,
+    "injured": 6,
+    "lat": 31.573887,
+    "long": -90.444191
+  },
+  {
+    "Incident Date": "24-Nov-17",
+    "Address": "11618 Buckeye Rd",
+    "City Or County": "Cleveland",
+    "State": "Ohio",
+    "killed": 1,
+    "injured": 5,
+    "lat": 41.480702,
+    "long": -81.602159
+  },
+  {
+    "Incident Date": "18-Nov-17",
+    "Address": "3600 block of Emerson Avenue North",
+    "City Or County": "Minneapolis",
+    "State": "Minnesota",
+    "killed": 0,
+    "injured": 4,
+    "lat": 45.020489,
+    "long": -93.293968
+  },
+  {
+    "Incident Date": "17-Nov-17",
+    "Address": "900 Block of Mississippi St",
+    "City Or County": "New Iberia",
+    "State": "Louisiana",
+    "killed": 0,
+    "injured": 4,
+    "lat": 30.011329,
+    "long": -91.841252
+  },
+  {
+    "Incident Date": "16-Nov-17",
+    "Address": "1400 block of 15th Street",
+    "City Or County": "Columbus",
+    "State": "Georgia",
+    "killed": 0,
+    "injured": 7,
+    "lat": 32.474175,
+    "long": -84.971317
+  },
+  {
+    "Incident Date": "14-Nov-17",
+    "Address": "900 Block of View Dr",
+    "City Or County": "Richmond",
+    "State": "California",
+    "killed": 2,
+    "injured": 2,
+    "lat": 37.977882,
+    "long": -122.313528
+  }
+]
