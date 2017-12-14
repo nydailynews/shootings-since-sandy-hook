@@ -137,7 +137,7 @@
 		</ul>
 	</div>
 
-	<p class="stamp">Updated December 7, 2017</p>
+	<p class="stamp">Updated December 14, 2017</p>
 	<p id="datestamp" class="stamp">Published October 3, 2017</p>
 
 	<p>
@@ -289,7 +289,7 @@
 	</script>
 
 	<p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-	<p class="stamp">Data last updated December 7, 2017</p>
+	<p class="stamp">Data last updated December 14, 2017</p>
 </section>
 
 <div>
@@ -431,7 +431,7 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('data/201712.json', function(data) {
+        $.getJSON('data/201712.json?v2', function(data) {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
                 m.process_marker(data[i]);

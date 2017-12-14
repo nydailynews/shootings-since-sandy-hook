@@ -137,13 +137,11 @@
 		</ul>
 	</div>
 
-    <!--
-	<p class="stamp">Updated November 14, 2017</p>
-    -->
+	<p class="stamp">Updated December 14, 2017</p>
 	<p id="datestamp" class="stamp">Published December 8, 2017</p>
 
 	<p>
-		In the five years since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,780 have died in subsequent mass shootings. More than 6,300 suffered injuries. 
+		In the five years since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,780 have died in subsequent mass shootings. More than 6,310 suffered injuries. 
 		Explore these grim incidents in this map of mass shootings in the United States.
 	</p>
 </div>
@@ -424,7 +422,7 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('../data/201712.json', function(data) {
+        $.getJSON('../data/201712.json?v1', function(data) {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
                 m.process_marker(data[i]);
