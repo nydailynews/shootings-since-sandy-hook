@@ -127,7 +127,7 @@
 		<div>
 
 <div class="intro">
-    <h2>How many mass shootings since Sandy Hook?</h2>
+    <p class="overline">How many mass shootings since Sandy Hook?</p>
 	<h1>MAP: Mass shootings in the United States since 2013</h1>
 	<div>
 		<ul class="ra-share" id="ra-share-top" style="text-align: center;">
@@ -137,11 +137,12 @@
 		</ul>
 	</div>
 
-	<p class="stamp">Updated December 14, 2017</p>
+	<p class="stamp">Updated January 23, 2018</p>
 	<p id="datestamp" class="stamp">Published October 3, 2017</p>
 
 	<p>
-		Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries. Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>, <span id="X">72</span> have died in mass shootings and <span id="I">230</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
+		Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries.
+		Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>, <span id="X">96</span> have died in mass shootings and <span id="I">334</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
 	</p>
 	<p>
 		Explore these grim incidents in this map of mass shootings in the United States.
@@ -289,7 +290,7 @@
 	</script>
 
 	<p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-	<p class="stamp">Data last updated December 14, 2017</p>
+	<p class="stamp">Data last updated January 23, 2018</p>
 </section>
 
 <div>
@@ -431,7 +432,13 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('data/201712.json?v2', function(data) {
+        $.getJSON('data/201712.json?v3', function(data) {
+            var len = data.length;
+            for ( var i = 0; i < len; i ++ ) {
+                m.process_marker(data[i]);
+            }
+        });
+        $.getJSON('data/201801.json', function(data) {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
                 m.process_marker(data[i]);
