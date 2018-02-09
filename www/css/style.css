@@ -30,7 +30,7 @@ body {
 }
 
 
-h1 {
+article h1 {
 	color: #030303;
 	font-family: 'PT Serif', serif;
 	font-weight: normal;
@@ -53,7 +53,7 @@ h1 {
 	letter-spacing: 0.5px;
 }
 
-h3 {
+article h3 {
 	font: bold 25px "Open Sans Condensed", sans-serif;
 	text-transform: uppercase;
 	margin-bottom: 10px;
@@ -61,7 +61,7 @@ h3 {
 	text-align: center;
 }
 
-h4 {
+article h4 {
 	font: bold 14px "Open Sans", sans-serif;
 	line-height: 22px;
 	text-transform: uppercase;
@@ -100,10 +100,6 @@ hr {
 
 q {
 	quotes: '\201C' '\201D';
-}
-
-#statues img {
-	max-height: 170px;
 }
 
 legend {
@@ -174,14 +170,14 @@ legend {
 
 /*----- RADIO BUTTONS -----*/
 
-ul {
+article ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	overflow: auto;
 }
 
-fieldset ul li {
+article fieldset ul li {
 	color: #333;
 	display: inline-block;
 	margin: 10px;
@@ -263,85 +259,11 @@ div.ad > span {
 
 /*  SECTIONS  */
 
-section#statues {
-	width: 100%;
-	height: auto;
-}
-
-section#statues ul {
-	width: 100%;
-	height: auto;
-	margin: 0;
-	padding: 0 20px 20px 20px;
-	list-style: none;
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	justify-content: space-around;
-}
-
-section#statues ul li {
-	width: 300px;
-	margin: 10px;
-	text-align: center;
-}
-
-section#statues ul li div p {
-	text-align: left;
-}
-
 #map h3 {
 	margin-bottom: 0;
 }
 #map p {
 	margin-top: 0;
-}
-
-/*  READ MORE HANDLER  */
-.read-more.collapsed {
-	max-height: 120px;
-	overflow: hidden;
-	margin-bottom: 40px;
-}
-
-.read-more {
-	position: relative;
-	cursor: pointer;
-}
-
-.read-more:before {
-	display: none;
-}
-
-.read-more.collapsed:after {
-	content: "Read More \25BE";
-	width: 270px;
-	padding: 5px 10px 5px 0;
-	bottom: -1px;
-	z-index: 1;
-	text-align: right;
-	transition: bottom .4s;
-	background: linear-gradient(to right,transparent 0,#8fb0c6 80%,#8fb0c6 100%);
-}
-
-.read-more:after {
-	content: "Read Less \25B4";
-	display: block;
-	width: 270px;
-	position: absolute;
-	right: 2px;
-	text-transform: uppercase;
-	color: white;
-	cursor: pointer;
-	font: bold 15px "Open Sans Condensed", sans-serif;
-	text-align: right;
-	padding: 5px 10px 5px 0;
-	transition: bottom .4s;
-	background: linear-gradient(to right,transparent 0,#8fb0c6 80%,#8fb0c6 100%);
 }
 
 /* HANDHELD-SPECIFIC */
