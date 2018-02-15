@@ -143,8 +143,8 @@
     <p>
         Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries.
         Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>,
-        <span id="X">126</span> have died in mass shootings and
-        <span id="I">389</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
+        <span id="X">143</span> have died in mass shootings and
+        <span id="I">389+</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
     </p>
     <p>
         Explore these grim incidents in this map of mass shootings in the United States.
@@ -446,7 +446,7 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('data/201802.json', function(data) {
+        $.getJSON('data/201802.json?v1', function(data) {
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {
                 m.process_marker(data[i]);

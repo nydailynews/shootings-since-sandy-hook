@@ -1,5 +1,15 @@
 [
   {
+    "Incident Date": "14-Feb-18",
+    "Address": "",
+    "City Or County": "Parkland",
+    "State": "Florida",
+    "killed": 17,
+    "injured": ,
+    "lat": 26.3045,
+    "long": -80.2695
+  },
+  {
     "Incident Date": "13-Feb-18",
     "Address": "5400 block of Andry Street",
     "City Or County": "New Orleans",
