@@ -14,10 +14,12 @@
     "Address": "3950 Las Vegas Blvd S",
     "City Or County": "Las Vegas",
     "State": "Nevada",
-    "killed": 52,
-    "injured": 98,
+    "killed": 59,
+    "injured": 527,
     "lat": 36.090861,
-    "long": -115.175027
+    "long": -115.175027,
+    "url": "http://www.nydailynews.com/news/national/las-vegas-cops-search-mandalay-bay-casino-shooter-article-1.3535657",
+    "headline": "Mass shooting at Mandalay Bay concert in Las Vegas kills at least 59, injures 527"
   },
   {
     "Incident Date": "30-Sep-17",

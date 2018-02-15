@@ -245,7 +245,7 @@ var m = {
             attribution: m.attribution,
             maxZoom: 16
         }).addTo(m.map);
-        $.getJSON('../data/201710.json', function(data) {
+        $.getJSON('../data/201710.json?v1', function(data) {
             m.marker_group = L.layerGroup().addTo(m.map);
             var len = data.length;
             for ( var i = 0; i < len; i ++ ) {

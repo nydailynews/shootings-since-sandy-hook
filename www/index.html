@@ -430,7 +430,7 @@ var m = {
             "long": -95.235711
           },
         */
-        $.getJSON('data/201710.json', function(data) {
+        $.getJSON('data/201710.json?v1', function(data) {
             var len = data.length;
             shootings += len;
             for ( var i = 0; i < len; i ++ ) {
@@ -459,7 +459,7 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('data/201802.json?v3', function(data) {
+        $.getJSON('data/201802.json?v4', function(data) {
             var len = data.length;
             shootings += len;
             for ( var i = 0; i < len; i ++ ) {
