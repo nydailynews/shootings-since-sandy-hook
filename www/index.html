@@ -138,7 +138,7 @@
         </ul>
     </div>
 
-    <p class="stamp">Updated Feb. 14, 2018</p>
+    <p class="stamp">Updated March 16, 2018</p>
     <p id="datestamp" class="stamp">Published October 3, 2017</p>
 
     <p>
@@ -146,8 +146,13 @@
     </p>
     <p>
         Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>,
-        <span id="X">143</span> have died in mass shootings and
-        <span id="I">389+</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
+        <span id="2017-X">159</span> have died in mass shootings and
+        more than <span id="2017-I">448</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
+    </p>
+    <p>
+        Since the <a href="http://www.nydailynews.com/news/national/student-opens-fire-fla-high-school-kills-17-article-1.3820936">February 2018 Parkland school shooting</a>,
+        <span id="X">16</span> have died in mass shootings and
+        <span id="I">59</span> have been injured.
     </p>
     <p>
         Explore these grim incidents in this map of mass shootings in the United States.
@@ -297,7 +302,7 @@
     </script>
 
     <p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-    <p class="stamp">Data last updated Feb. 14, 2018</p>
+    <p class="stamp">Data last updated March 15, 2018</p>
 </section>
 
 <div>
@@ -458,7 +463,14 @@ var m = {
                 m.process_marker(data[i]);
             }
         });
-        $.getJSON('data/201802.json?v4', function(data) {
+        $.getJSON('data/201802.json?v5', function(data) {
+            var len = data.length;
+            shootings += len;
+            for ( var i = 0; i < len; i ++ ) {
+                m.process_marker(data[i]);
+            }
+        });
+        $.getJSON('data/201803.json?v1', function(data) {
             var len = data.length;
             shootings += len;
             for ( var i = 0; i < len; i ++ ) {

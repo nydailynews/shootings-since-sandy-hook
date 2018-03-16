@@ -1,13 +1,15 @@
 [
   {
     "Incident Date": "14-Feb-18",
-    "Address": "",
-    "City Or County": "Parkland",
+    "Address": "5901 Pine Island Rd",
+    "City Or County": "Pompano Beach (Parkland)",
     "State": "Florida",
     "killed": 17,
-    "injured": 14,
-    "lat": 26.3045,
-    "long": -80.2695
+    "injured": 17,
+    "lat": 26.304503,
+    "long": -80.269457,
+    "url": "http://www.nydailynews.com/news/national/student-opens-fire-fla-high-school-kills-17-article-1.3820936",
+    "headline": "Expelled student armed with assault rifle slaughters 17 at Florida high school before arrested"
   },
   {
     "Incident Date": "13-Feb-18",
