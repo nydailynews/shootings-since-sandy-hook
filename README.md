@@ -18,3 +18,6 @@
 1. Convert the spreadsheet to JSON.
 1. Save the JSON in a new file named after the month it is, ala 201804.json for April 2018 or 201811.json for November 2018.
 1. Put that file in the www/data directory and add it to the repo.
+
+### How to add the updated JSON to the interactive map
+
