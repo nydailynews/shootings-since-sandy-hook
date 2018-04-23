@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>MAP: Mass shootings since Sandy Hook - New York Daily News</title>
+    <title>MAP: Mass shootings since Sandy Hook</title>
     <link rel="icon" type="image/png" href="http://interactive.nydailynews.com/favicons.png">
     <!-- DEFAULT -->
     <meta charset="utf-8">
@@ -22,8 +22,7 @@
     <meta name="twitter:description" content="A map of the mass shootings in the U.S. since 2013, updated every month" />
 
     <!-- KEYWORD -->
-    <meta name="keywords" content="Mass shootings,mass shootings map" />
-    <meta name="news_keywords" content="Mass shootings,mass shootings map,U.S. mass shootings" />
+    <meta name="keywords" content="Mass shootings,mass shootings map,U.S. mass shootings database" />
 
     <!-- LINK -->
     <link rel="canonical" href="http://interactive.nydailynews.com/map/mass-shootings-since-sandy-hook/">
@@ -138,21 +137,21 @@
         </ul>
     </div>
 
-    <p class="stamp">Updated March 16, 2018</p>
+    <p class="stamp">Updated April 23, 2018</p>
     <p id="datestamp" class="stamp">Published October 3, 2017</p>
 
     <p>
-    Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries in <span id="shootings-count"></span> mass shootings.
+        Since the mass shooting at Sandy Hook Elementary School in Newtown, Connecticut, more than 1,700 died in subsequent mass shootings. More than 6,000 suffered injuries in <span id="shootings-count"></span> mass shootings.
     </p>
     <p>
         Since <a href="las-vegas-2017/">the October 2017 Las Vegas mass shooting</a>,
-        <span id="2017-X">159</span> have died in mass shootings and
-        more than <span id="2017-I">448</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
+        <span id="2017-X">178</span> have died in mass shootings and
+        more than <span id="2017-I">532</span> have been injured, including <a href="http://www.nydailynews.com/news/national/26-dead-gunman-opens-fire-texas-church-article-1.3613015">the 26 killed and 20 injured in the Nov. 5 mass shooting in Texas</a>. 
     </p>
     <p>
-        Since the <a href="http://www.nydailynews.com/news/national/student-opens-fire-fla-high-school-kills-17-article-1.3820936">February 2018 Parkland school shooting</a>,
-        <span id="X">16</span> have died in mass shootings and
-        <span id="I">59</span> have been injured.
+        Since the <a href="http://www.nydailynews.com/news/national/student-opens-fire-fla-high-school-kills-17-article-1.3820936">February 2018 Parkland school shooting</a>, 
+        <span id="X">35</span> have died in mass shootings and
+        <span id="I">143</span> have been injured.
     </p>
     <p>
         Explore these grim incidents in this map of mass shootings in the United States.
@@ -302,11 +301,11 @@
     </script>
 
     <p class="caption">Data from <a href="http://www.gunviolencearchive.org">Gun Violence Archive</a></p>
-    <p class="stamp">Data last updated March 15, 2018</p>
+    <p class="stamp">Data last updated April 23, 2018</p>
 </section>
 
 <div>
-    <p class="caption">Interactive by Joe Murphy and Kelli R. Parker</p>
+    <p class="caption">Interactive by Joe Murphy and Kelli R. Parker and Steve Smirti</p>
 </div>
 
         </div>
@@ -471,6 +470,13 @@ var m = {
             }
         });
         $.getJSON('data/201803.json?v1', function(data) {
+            var len = data.length;
+            shootings += len;
+            for ( var i = 0; i < len; i ++ ) {
+                m.process_marker(data[i]);
+            }
+        });
+        $.getJSON('data/201804.json', function(data) {
             var len = data.length;
             shootings += len;
             for ( var i = 0; i < len; i ++ ) {
