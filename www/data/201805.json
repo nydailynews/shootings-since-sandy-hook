@@ -1,5 +1,28 @@
 [
+{
+    "Incident Date": "18-May-18",
+    "Address": "16000 Hwy 6",
+    "City Or County": "Santa Fe",
+    "State": "Texas",
+    "# Killed": 10,
+    "# Injured": 13,
+    "lat": 29.393718,
+    "long": -95.142555,
+    "url": "http://www.nydailynews.com/news/national/multiple-casualties-killed-shooting-texas-high-school-article-1.3996675",
+    "headline": "At least 10 dead in shooting at Santa Fe High School in Texas, 17-year-old suspect in custody"
+  },
   {
+    "Incident Date": "16-May-18",
+    "Address": "610 Lone Star Park Ln",
+    "City Or County": "Ponder",
+    "State": "Texas",
+    "# Killed": 5,
+    "# Injured": 1,
+    "lat": 33.178463,
+    "long": -97.285582,
+    "url": "",
+    "headline": ""
+  },  {
     "Incident Date": "14-May-18",
     "Address": "2020 Etting St",
     "City Or County": "Baltimore",
