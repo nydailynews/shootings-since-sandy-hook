@@ -1,5 +1,17 @@
 [
 {
+    "Incident Date": "20-May-18",
+    "Address": "513 Monticello St",
+    "City Or County": "Hazlehurst",
+    "State": "Mississippi",
+    "# Killed": 1,
+    "# Injured": 7,
+    "lat": 31.852183,
+    "long": -90.388767,
+    "url": "",
+    "headline": ""
+  },
+  {
     "Incident Date": "18-May-18",
     "Address": "16000 Hwy 6",
     "City Or County": "Santa Fe",
