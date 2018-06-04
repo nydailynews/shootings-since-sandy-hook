@@ -1,0 +1,50 @@
+[
+  {
+    "Incident Date": "3-June-2018",
+    "Address": "1200 block of W 73rd Pl",
+    "City Or County": "Chicago",
+    "State": "Illinios",
+    "killed": 1,
+    "injured": 3,
+    "lat": 41.760505,
+    "long": -87.654007,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "3-June-2018",
+    "Address": "4500 Spring Ave",
+    "City Or County": "Dallas",
+    "State": "Texas",
+    "killed": 0,
+    "injured": 5,
+    "lat": 32.773854,
+    "long": -96.742081,
+    "url": "http://www.nydailynews.com/news/ny-news-multiple-shot-texas-football-game-20180604-story.html",
+    "headline": "Multiple people, including pregnant woman, shot at Texas football game"
+  },
+  {
+    "Incident Date": "2-June-2018",
+    "Address": "S 11th St and Farnam St",
+    "City Or County": "Omaha",
+    "State": "Nebraska",
+    "killed": 1,
+    "injured": 6,
+    "lat": 41.257567,
+    "long": -95.930546,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "2-June-2018",
+    "Address": "Strauss Street",
+    "City Or County": "Buffalo",
+    "State": "New York",
+    "killed": 0,
+    "injured": 5,
+    "lat": 42.897026,
+    "long": -78.841182,
+    "url": "",
+    "headline": ""
+  }
+]
