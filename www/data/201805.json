@@ -1,5 +1,65 @@
 [
 {
+    "Incident Date": "31-May-18",
+    "Address": "Chaney Grove Rd",
+    "City Or County": "Timmonsville",
+    "State": "South Carolina",
+    "killed": 3,
+    "injured": 2,
+    "lat": 34.08653,
+    "long": -79.990513,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "27-May-18",
+    "Address": "857 E Stoner Ave",
+    "City Or County": "Shreveport",
+    "State": "Louisiana",
+    "killed": 0,
+    "injured": 4,
+    "lat": 32.499898,
+    "long": -93.709957,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "27-May-18",
+    "Address": "15373 E 6th Ave",
+    "City Or County": "Aurora",
+    "State": "Colorado",
+    "killed": 1,
+    "injured": 3,
+    "lat": 39.726244,
+    "long": -104.80911,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "25-May-18",
+    "Address": "1000 block of Ross Avenue",
+    "City Or County": "Cincinnati",
+    "State": "Ohio",
+    "killed": 0,
+    "injured": 4,
+    "lat": 39.112994,
+    "long": -84.575007,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "20-May-18",
+    "Address": "1604 Madison Ave",
+    "City Or County": "Anderson",
+    "State": "Indiana",
+    "killed": 0,
+    "injured": 4,
+    "lat": 40.099649,
+    "long": -85.691644,
+    "url": "",
+    "headline": ""
+  },
+{
     "Incident Date": "20-May-18",
     "Address": "513 Monticello St",
     "City Or County": "Hazlehurst",
