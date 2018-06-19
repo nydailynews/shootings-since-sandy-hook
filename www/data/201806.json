@@ -1,4 +1,52 @@
 [
+ {
+    "Incident Date": "10-Jun-2018",
+    "Address": "5627 14th St W",
+    "City Or County": "Bradenton",
+    "State": "Florida",
+    "killed": 1,
+    "injured": 5,
+    "lat": 27.441286,
+    "long": -82.574274,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "10-Jun-2018",
+    "Address": "1200 block of Orchard Rd",
+    "City Or County": "Bloomington",
+    "State": "Illinios",
+    "killed": 2,
+    "injured": 2,
+    "lat": 40.490328,
+    "long": -88.950638,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "10-Jun-2018",
+    "Address": "12719 Tiara St",
+    "City Or County": "Valley Village",
+    "State": "California",
+    "killed": 0,
+    "injured": 6,
+    "lat": 34.178715,
+    "long": -118.410177,
+    "url": "",
+    "headline": ""
+  },
+  {
+    "Incident Date": "10-Jun-2018",
+    "Address": "300 block of W Park Ave",
+    "City Or County": "Aurora",
+    "State": "Illinios",
+    "killed": 0,
+    "injured": 7,
+    "lat": 41.764387,
+    "long": -88.317181,
+    "url": "",
+    "headline": ""
+  },
   {
     "Incident Date": "18-Jun-2018",
     "Address": "1300 block of S Loomis St",
@@ -274,7 +322,7 @@
     "long": -81.528322,
     "url": "",
     "headline": ""
-  },{
+  }, {
     "Incident Date": "3-Jun-18",
     "Address": "1200 block of W 73rd Pl",
     "City Or County": "Chicago",
